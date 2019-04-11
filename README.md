@@ -9,3 +9,6 @@ In this project we aim to analyze from linguistics perspective the segmentation 
 
 ### Scripts
 To calculate the type counts for each language, run `bash calc_type_count.bash`
+
+To run BPE experiments on various vocabulary sizes, run `bash run_bpe.bash`.
+This assumes you have installed sentencepiece Python wrapper `pip install sentencepiece`.
