@@ -28,18 +28,13 @@ def get_inpath(args):
         for input_file in args.input_files:
             with open(input_file, 'r') as infile:
                 for line in infile:
-                    if line.startswith('#'):
+                    if line.startswith('# text = '):
+                        text = line[len('# text = '):]
                         continue
+                    elif line.startswith('# ToDoOrigText = '):
+                        text = line[len('# ToDoOrigText = '):]
                     elif line.strip() == '':
-                        outfile.write('\n')
-                    else:
-                        tokens = line.rstrip('\n').split('\t')
-                        word = tokens[1]
-                        if 'SpaceAfter=No' in tokens[9]:
-                            space = ''
-                        else:
-                            space = ' '
-                        outfile.write('{}{}'.format(word, space))
+                        outfile.write(text)
     return outpath
 
 def main():
