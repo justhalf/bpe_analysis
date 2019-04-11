@@ -1,0 +1,58 @@
+sentencepiece_trainer.cc(116) LOG(INFO) Running command: --input=models/ja_bpe_184_vocab.txt --model_prefix=models/ja_bpe_184_vocab --vocab_size=184 --model_type=bpe
+sentencepiece_trainer.cc(49) LOG(INFO) Starts training with : 
+TrainerSpec {
+  input: models/ja_bpe_184_vocab.txt
+  input_format: 
+  model_prefix: models/ja_bpe_184_vocab
+  model_type: BPE
+  vocab_size: 184
+  self_test_sample_size: 0
+  character_coverage: 0.9995
+  input_sentence_size: 0
+  shuffle_input_sentence: 1
+  seed_sentencepiece_size: 1000000
+  shrinking_factor: 0.75
+  max_sentence_length: 4192
+  num_threads: 16
+  num_sub_iterations: 2
+  max_sentencepiece_length: 16
+  split_by_unicode_script: 1
+  split_by_number: 1
+  split_by_whitespace: 1
+  treat_whitespace_as_suffix: 0
+  hard_vocab_limit: 1
+  use_all_vocab: 0
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+  pad_id: -1
+  unk_piece: <unk>
+  bos_piece: <s>
+  eos_piece: </s>
+  pad_piece: <pad>
+  unk_surface:  ⁇ 
+}
+NormalizerSpec {
+  name: nmt_nfkc
+  add_dummy_prefix: 1
+  remove_extra_whitespaces: 1
+  escape_whitespaces: 1
+  normalization_rule_tsv: 
+}
+
+trainer_interface.cc(267) LOG(INFO) Loading corpus: models/ja_bpe_184_vocab.txt
+trainer_interface.cc(315) LOG(INFO) Loaded all 1000 sentences
+trainer_interface.cc(330) LOG(INFO) Adding meta_piece: <unk>
+trainer_interface.cc(330) LOG(INFO) Adding meta_piece: <s>
+trainer_interface.cc(330) LOG(INFO) Adding meta_piece: </s>
+trainer_interface.cc(335) LOG(INFO) Normalizing sentences...
+trainer_interface.cc(384) LOG(INFO) all chars count=49269
+trainer_interface.cc(392) LOG(INFO) Done: 99.9513% characters are covered.
+trainer_interface.cc(402) LOG(INFO) Alphabet size=1610
+trainer_interface.cc(403) LOG(INFO) Final character coverage=0.999513
+Traceback (most recent call last):
+  File "run_bpe.py", line 78, in <module>
+    main()
+  File "run_bpe.py", line 60, in main
+    args.vocab_size))
+RuntimeError: Internal: /sentencepiece/src/trainer_interface.cc(427) [(static_cast<int>(required_chars_.size() + meta_pieces_.size())) <= (trainer_spec_.vocab_size())] Vocabulary size is smaller than required_chars. 184 vs 1613. Increase vocab_size or decrease character_coverage with --character_coverage option.

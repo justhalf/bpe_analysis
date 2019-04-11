@@ -1,0 +1,94 @@
+sentencepiece_trainer.cc(116) LOG(INFO) Running command: --input=models/zh_bpe_2732_vocab.txt --model_prefix=models/zh_bpe_2732_vocab --vocab_size=2732 --model_type=bpe
+sentencepiece_trainer.cc(49) LOG(INFO) Starts training with : 
+TrainerSpec {
+  input: models/zh_bpe_2732_vocab.txt
+  input_format: 
+  model_prefix: models/zh_bpe_2732_vocab
+  model_type: BPE
+  vocab_size: 2732
+  self_test_sample_size: 0
+  character_coverage: 0.9995
+  input_sentence_size: 0
+  shuffle_input_sentence: 1
+  seed_sentencepiece_size: 1000000
+  shrinking_factor: 0.75
+  max_sentence_length: 4192
+  num_threads: 16
+  num_sub_iterations: 2
+  max_sentencepiece_length: 16
+  split_by_unicode_script: 1
+  split_by_number: 1
+  split_by_whitespace: 1
+  treat_whitespace_as_suffix: 0
+  hard_vocab_limit: 1
+  use_all_vocab: 0
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+  pad_id: -1
+  unk_piece: <unk>
+  bos_piece: <s>
+  eos_piece: </s>
+  pad_piece: <pad>
+  unk_surface:  ⁇ 
+}
+NormalizerSpec {
+  name: nmt_nfkc
+  add_dummy_prefix: 1
+  remove_extra_whitespaces: 1
+  escape_whitespaces: 1
+  normalization_rule_tsv: 
+}
+
+trainer_interface.cc(267) LOG(INFO) Loading corpus: models/zh_bpe_2732_vocab.txt
+trainer_interface.cc(315) LOG(INFO) Loaded all 1000 sentences
+trainer_interface.cc(330) LOG(INFO) Adding meta_piece: <unk>
+trainer_interface.cc(330) LOG(INFO) Adding meta_piece: <s>
+trainer_interface.cc(330) LOG(INFO) Adding meta_piece: </s>
+trainer_interface.cc(335) LOG(INFO) Normalizing sentences...
+trainer_interface.cc(384) LOG(INFO) all chars count=36577
+trainer_interface.cc(392) LOG(INFO) Done: 99.9508% characters are covered.
+trainer_interface.cc(402) LOG(INFO) Alphabet size=2116
+trainer_interface.cc(403) LOG(INFO) Final character coverage=0.999508
+trainer_interface.cc(435) LOG(INFO) Done! preprocessed 1000 sentences.
+trainer_interface.cc(441) LOG(INFO) Tokenizing input sentences with whitespace: 1000
+trainer_interface.cc(451) LOG(INFO) Done! 1091
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=90 min_freq=4
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=31 size=20 all=19621 active=1802 piece=可以
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=24 size=40 all=20249 active=2430 piece=認為
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=19 size=60 all=20776 active=2957 piece=包括
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=17 size=80 all=21209 active=3389 piece=年代
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=16 size=100 all=21659 active=3839 piece=需要
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=15 min_freq=4
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=14 size=120 all=21979 active=1382 piece=人們
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=13 size=140 all=22327 active=1730 piece=as
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=12 size=160 all=22561 active=1964 piece=令人
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=11 size=180 all=22820 active=2223 piece=▁從
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=10 size=200 all=23084 active=2487 piece=12
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=10 min_freq=3
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=10 size=220 all=23330 active=1395 piece=朗普
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=9 size=240 all=23573 active=1638 piece=14
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=9 size=260 all=23755 active=1820 piece=學生
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=9 size=280 all=23989 active=2054 piece=通常
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=8 size=300 all=24166 active=2231 piece=價格
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=8 min_freq=3
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=8 size=320 all=24390 active=1422 piece=整個
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=8 size=340 all=24628 active=1660 piece=行為
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=7 size=360 all=24837 active=1869 piece=he
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=7 size=380 all=25018 active=2050 piece=參與
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=7 size=400 all=25208 active=2240 piece=教堂
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=7 min_freq=3
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=7 size=420 all=25395 active=1437 piece=隨著
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=6 size=440 all=25543 active=1585 piece=▁P
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=6 size=460 all=25690 active=1732 piece=商業
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=6 size=480 all=25869 active=1911 piece=日本
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=6 size=500 all=26019 active=2061 piece=英鎊
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=6 min_freq=3
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=6 size=520 all=26184 active=1462 piece=ter
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=540 all=26305 active=1583 piece=ay
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=560 all=26405 active=1683 piece=住在
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=580 all=26540 active=1818 piece=勝利
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=600 all=26674 active=1952 piece=女士
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=5 min_freq=2
+trainer_interface.cc(507) LOG(INFO) Saving model: models/zh_bpe_2732_vocab.model
+trainer_interface.cc(531) LOG(INFO) Saving vocabs: models/zh_bpe_2732_vocab.vocab

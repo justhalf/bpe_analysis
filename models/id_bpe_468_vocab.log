@@ -1,0 +1,80 @@
+sentencepiece_trainer.cc(116) LOG(INFO) Running command: --input=models/id_bpe_468_vocab.txt --model_prefix=models/id_bpe_468_vocab --vocab_size=468 --model_type=bpe
+sentencepiece_trainer.cc(49) LOG(INFO) Starts training with : 
+TrainerSpec {
+  input: models/id_bpe_468_vocab.txt
+  input_format: 
+  model_prefix: models/id_bpe_468_vocab
+  model_type: BPE
+  vocab_size: 468
+  self_test_sample_size: 0
+  character_coverage: 0.9995
+  input_sentence_size: 0
+  shuffle_input_sentence: 1
+  seed_sentencepiece_size: 1000000
+  shrinking_factor: 0.75
+  max_sentence_length: 4192
+  num_threads: 16
+  num_sub_iterations: 2
+  max_sentencepiece_length: 16
+  split_by_unicode_script: 1
+  split_by_number: 1
+  split_by_whitespace: 1
+  treat_whitespace_as_suffix: 0
+  hard_vocab_limit: 1
+  use_all_vocab: 0
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+  pad_id: -1
+  unk_piece: <unk>
+  bos_piece: <s>
+  eos_piece: </s>
+  pad_piece: <pad>
+  unk_surface:  ⁇ 
+}
+NormalizerSpec {
+  name: nmt_nfkc
+  add_dummy_prefix: 1
+  remove_extra_whitespaces: 1
+  escape_whitespaces: 1
+  normalization_rule_tsv: 
+}
+
+trainer_interface.cc(267) LOG(INFO) Loading corpus: models/id_bpe_468_vocab.txt
+trainer_interface.cc(315) LOG(INFO) Loaded all 1000 sentences
+trainer_interface.cc(330) LOG(INFO) Adding meta_piece: <unk>
+trainer_interface.cc(330) LOG(INFO) Adding meta_piece: <s>
+trainer_interface.cc(330) LOG(INFO) Adding meta_piece: </s>
+trainer_interface.cc(335) LOG(INFO) Normalizing sentences...
+trainer_interface.cc(384) LOG(INFO) all chars count=119747
+trainer_interface.cc(392) LOG(INFO) Done: 99.9532% characters are covered.
+trainer_interface.cc(402) LOG(INFO) Alphabet size=76
+trainer_interface.cc(403) LOG(INFO) Final character coverage=0.999532
+trainer_interface.cc(435) LOG(INFO) Done! preprocessed 1000 sentences.
+trainer_interface.cc(441) LOG(INFO) Tokenizing input sentences with whitespace: 1000
+trainer_interface.cc(451) LOG(INFO) Done! 6260
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=5120 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=777 size=20 all=1806 active=1729 piece=ah
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=345 size=40 all=2561 active=2484 piece=ing
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=275 size=60 all=3448 active=3371 piece=ir
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=196 size=80 all=4083 active=4006 piece=ung
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=163 size=100 all=4632 active=4555 piece=ent
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=161 min_freq=12
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=125 size=120 all=5017 active=1335 piece=ti
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=100 size=140 all=5551 active=1869 piece=anya
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=82 size=160 all=5937 active=2255 piece=ikan
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=70 size=180 all=6241 active=2559 piece=atu
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=65 size=200 all=6520 active=2838 piece=agian
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=64 min_freq=11
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=58 size=220 all=6810 active=1286 piece=amp
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=52 size=240 all=7136 active=1612 piece=ch
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=47 size=260 all=7322 active=1798 piece=ati
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=43 size=280 all=7530 active=2006 piece=ena
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=40 size=300 all=7771 active=2247 piece=uran
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=40 min_freq=9
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=36 size=320 all=7932 active=1150 piece=▁(
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=34 size=340 all=8094 active=1312 piece=▁lain
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=31 size=360 all=8218 active=1436 piece=▁201
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=29 size=380 all=8442 active=1660 piece=▁Amer
+trainer_interface.cc(507) LOG(INFO) Saving model: models/id_bpe_468_vocab.model
+trainer_interface.cc(531) LOG(INFO) Saving vocabs: models/id_bpe_468_vocab.vocab
