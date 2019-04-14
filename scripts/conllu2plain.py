@@ -77,3 +77,7 @@ def main(fin, fout, mode):
 if __name__ == '__main__':
     mode = sys.argv[1] if len(sys.argv)>=2 else "tok"
     main(sys.stdin, sys.stdout, mode)
+
+# some useful one liners
+# split line and put one token one line
+# python3 -c "import sys; print('\n'.join(['\n'.join(line.split()) for line in sys.stdin]))"
