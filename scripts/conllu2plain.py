@@ -6,7 +6,8 @@
 
 import sys
 import re
-from opencc import OpenCC
+# from opencc import OpenCC
+from argparse import ArgumentParser
 
 HEADLINE_PATTERN = re.compile(r"^# ([a-zA-Z_]*) = (.*)$")
 
@@ -47,7 +48,8 @@ def iter_file(fin):
     if ret["len"] > 0:
         yield ret
 
-def main(fin, fout, mode):
+def main(fin, fout, mode, replace_space):
+    MY_SPACE = chr(0x2590)
     tok_mode = (mode=="tok")
     orig_mode = (mode=="orig")
     for one_parse in iter_file(fin):
@@ -65,18 +67,26 @@ def main(fin, fout, mode):
                     ts.append(" ")
             ts.append(one_parse["word"][-1])
             s = "".join(ts)
+        if replace_space:
+            s = re.sub(" ", MY_SPACE, s)
         fout.write(s+"\n")
 
 # put the first arg as "tok" if want the output to be tokenized (by UD)
 #   or "detok" to make it de-tokenized (by UD's SpaceAfter)
 #   or "orig" to read headline comments
 #
-# python3 conllu2plain tok <? >?
-# python3 conllu2plain detok <? >?
-# python3 conllu2plain orig <? >?
+# python3 conllu2plain --mode tok <? >?
+# python3 conllu2plain --mode detok <? >?
+# python3 conllu2plain --mode orig <? >?
 if __name__ == '__main__':
-    mode = sys.argv[1] if len(sys.argv)>=2 else "tok"
-    main(sys.stdin, sys.stdout, mode)
+    parser = ArgumentParser(description='Converting conllu file to plain text files with several modes.')
+    parser.add_argument("--mode", type=str, default="orig", choices=["tok", "detok", "orig"],
+                        help="tok: UD tokenized, detok: De-tok by UD's SpaceAfter, orig: read from headline comments")
+    parser.add_argument("--replace_space", type=int, default=0,
+                        help="Whether replace spaces with special token, which can be useful for extending MWE")
+    args = parser.parse_args()
+    #
+    main(sys.stdin, sys.stdout, args.mode, args.replace_space)
 
 # some useful one liners
 # split line and put one token one line

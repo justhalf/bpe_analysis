@@ -240,11 +240,13 @@ def read_tokens(file, delete_spm_space):
     printing(f"#=====\nRead tokens from {file} with delete_spm_space={delete_spm_space}")
     with smart_open(file) as fd:
         SPM_SPACE = chr(0x2581)
+        MY_SPACE = chr(0x2590)
         ret = []
         for line in fd:
             line = line.rstrip()
             if delete_spm_space:
                 line = re.sub(SPM_SPACE, "", line)
+                line = re.sub(MY_SPACE, "", line)
             toks = line.split(" ")
             ret.append(toks)
     printing(f"Read #sent={len(ret)}, #toks={sum(map(len, ret))}")
