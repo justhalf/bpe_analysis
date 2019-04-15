@@ -106,7 +106,13 @@ def analyze_para(vocab1: Vocab, corpus1: Corpus, vocab2: Vocab, corpus2: Corpus)
     #
     sent_idx = 0
     for chunks1, chunks2 in zip(corpus1.chunks, corpus2.chunks):
-        assert "".join(z[-1] for z in chunks1) == "".join(z[-1] for z in chunks2), f"Non parallel data on #{sent_idx}!"
+        # assert "".join(z[-1] for z in chunks1) == "".join(z[-1] for z in chunks2), f"Non parallel data on #{sent_idx}!"
+        if "".join(z[-1] for z in chunks1) != "".join(z[-1] for z in chunks2):
+            printing(f"Warning: Non parallel data on #{sent_idx}, skip!")
+            _add_cprops(corpus1, sent_idx, 0)
+            _add_cprops(corpus2, sent_idx, 0)
+            sent_idx += 1
+            continue
         # compare the chunks-pairs incrementally
         idx1, idx2 = 0, 0
         cross1, cross2 = False, False  # whether idx1 and idx2 have been crossed aligned before
@@ -121,6 +127,7 @@ def analyze_para(vocab1: Vocab, corpus1: Corpus, vocab2: Vocab, corpus2: Corpus)
                     # hit one segment
                     assert w1==w2, "Incorrect chunk idxes"
                     s1 = s2 = "hit"
+                    hit1, hit2 = hit1 + 1, hit2 + 1
                 elif start1 > start2:
                     s1 = "small"
                     s2 = "cross" if cross2 else "large"
@@ -131,7 +138,6 @@ def analyze_para(vocab1: Vocab, corpus1: Corpus, vocab2: Vocab, corpus2: Corpus)
                 _add_props(vocab1, w1, s1)
                 _add_props(vocab2, w2, s2)
                 idx1, idx2 = idx1 + 1, idx2 + 1
-                hit1, hit2 = hit1 + 1, hit2 + 1
                 cross1, cross2 = False, False
             elif end1 > end2:
                 if start2 >= start1:
@@ -172,7 +178,7 @@ def summary_para(vocab1: Vocab, corpus1: Corpus, vocab2: Vocab, corpus2: Corpus,
             "prec1": [z["hit"] / z["Ntok"] for z in corpus1.i2props],
             "prec2": [z["hit"] / z["Ntok"] for z in corpus2.i2props],
         }
-        individual_results["f"] = [2*a*b/(a+b) for a,b in zip(individual_results["prec1"], individual_results["prec2"])]
+        individual_results["f"] = [2*a*b/(a+b+1e-6) for a,b in zip(individual_results["prec1"], individual_results["prec2"])]
         for k in sorted(individual_results.keys()):
             printing(f"#-----\nIndividual ranking for key={k}")
             ranked_idxes = np.argsort(individual_results[k])
