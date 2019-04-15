@@ -107,7 +107,8 @@ def analyze_para(vocab1: Vocab, corpus1: Corpus, vocab2: Vocab, corpus2: Corpus)
     sent_idx = 0
     for chunks1, chunks2 in zip(corpus1.chunks, corpus2.chunks):
         # assert "".join(z[-1] for z in chunks1) == "".join(z[-1] for z in chunks2), f"Non parallel data on #{sent_idx}!"
-        if "".join(z[-1] for z in chunks1) != "".join(z[-1] for z in chunks2):
+        # TODO: SentencePieces will normalize special characters like punctuations!!
+        if len("".join(z[-1] for z in chunks1)) != len("".join(z[-1] for z in chunks2)):
             printing(f"Warning: Non parallel data on #{sent_idx}, skip!")
             _add_cprops(corpus1, sent_idx, 0)
             _add_cprops(corpus2, sent_idx, 0)
@@ -125,7 +126,7 @@ def analyze_para(vocab1: Vocab, corpus1: Corpus, vocab2: Vocab, corpus2: Corpus)
             if end1 == end2:
                 if start1 == start2:
                     # hit one segment
-                    assert w1==w2, "Incorrect chunk idxes"
+                    assert len(w1)==len(w2), "Incorrect chunk idxes"
                     s1 = s2 = "hit"
                     hit1, hit2 = hit1 + 1, hit2 + 1
                 elif start1 > start2:
@@ -225,7 +226,7 @@ def parse_cmd(args=None):
     parser = ArgumentParser(description='Analysis on segmentation results.')
     parser.add_argument('--f1', type=str, required=True, help='Analysis file 1')
     parser.add_argument('--f2', type=str, required=False, help='Analysis file 2 (optional)')
-    parser.add_argument('--delete_spm_space', type=int, default=0, help="Whether delete special space chars of SentencePieces")
+    parser.add_argument('--delete_spm_space', type=int, default=1, help="Whether delete special space chars of SentencePieces")
     parser.add_argument('--sent_topk', type=int, default=10, help="Print topk sentences")
     parser.add_argument('--vocab_topk', type=int, default=10, help="Print topk vocab entries")
     # using local variable "e" as vocab entry
@@ -248,7 +249,7 @@ def read_tokens(file, delete_spm_space):
                 line = re.sub(SPM_SPACE, "", line)
                 line = re.sub(MY_SPACE, "", line)
             toks = line.split(" ")
-            ret.append(toks)
+            ret.append([t for t in toks if len(t)>0])
     printing(f"Read #sent={len(ret)}, #toks={sum(map(len, ret))}")
     return ret
 
