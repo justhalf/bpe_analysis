@@ -11,7 +11,7 @@ import sentencepiece as spm
 from argparse import ArgumentParser
 import os
 
-def encode_as_pieces(sp, in_path, out_path, append=False):
+def encode_as_pieces(sp, in_path, out_path, append=False, lowercase=False):
     if append:
         mode = 'a'
     else:
@@ -19,10 +19,13 @@ def encode_as_pieces(sp, in_path, out_path, append=False):
     with open(in_path, 'r') as infile:
         with open(out_path, mode) as outfile:
             for line in infile:
-                pieces = sp.EncodeAsPieces(line.rstrip('\n'))
+                text = line.rstrip('\n')
+                if lowercase:
+                    text = text.lower()
+                pieces = sp.EncodeAsPieces(text)
                 outfile.write('{}\n'.format(' '.join(pieces)))
 
-def get_inpath(args):
+def get_inpath(args, lowercase=False):
     outpath = args.output_files[0]
     with open(outpath, 'w') as outfile:
         for input_file in args.input_files:
@@ -34,6 +37,8 @@ def get_inpath(args):
                     elif line.startswith('# ToDoOrigText = '):
                         text = line[len('# ToDoOrigText = '):]
                     elif line.strip() == '':
+                        if lowercase:
+                            text = text.lower()
                         outfile.write(text)
     return outpath
 
@@ -52,9 +57,11 @@ def main():
                         help='The path to model to save (train) or load (test), without extension')
     parser.add_argument('--vocab_size', type=int,
                         help='The vocab size for BPE (only applicable for train)')
+    parser.add_argument('--lowercase', action='store_true',
+                        help='lower case tokens')
     args = parser.parse_args()
     if args.mode == 'train':
-        inpath = get_inpath(args)
+        inpath = get_inpath(args, args.lowercase)
         spm.SentencePieceTrainer.Train(('--input={} --model_prefix={} --vocab_size={} '
                                         '--model_type=bpe').format(inpath, args.model_prefix,
                                                                    args.vocab_size))

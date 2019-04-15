@@ -2,6 +2,10 @@
 # By: Aldrian Obaja Muis
 # Run BPE
 
+conda activate py37
+
+OPT=$1
+
 mkdir -p "models"
 mkdir -p "outputs"
 for lang in "en" "id" "ja" "zh"; do
@@ -24,7 +28,7 @@ for lang in "en" "id" "ja" "zh"; do
             --input_files "${input_files}" \
             --output_files "${output_file}" \
             --model_prefix "${model_prefix}" \
-            --vocab_size ${vocab_size} \
+            --vocab_size ${vocab_size} ${OPT} \
             2> ${model_prefix}.log
         echo "Testing..."
         segmented_file="outputs/${lang}_pud-ud-test.conllu.bpe_${vocab_size}_vocab.txt"
@@ -32,6 +36,6 @@ for lang in "en" "id" "ja" "zh"; do
             --mode test \
             --input_files "${output_file}" \
             --output_files "${segmented_file}" \
-            --model_prefix "${model_prefix}"
+            --model_prefix "${model_prefix}" ${OPT}
     done
 done
