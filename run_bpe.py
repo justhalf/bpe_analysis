@@ -70,7 +70,8 @@ def main():
     if args.mode == 'train':
         inpath = get_inpath(args, lowercase=args.lowercase, no_space=args.no_space)
         spm.SentencePieceTrainer.Train(('--input={} --model_prefix={} --vocab_size={} '
-                                        '--model_type=bpe').format(inpath, args.model_prefix,
+                                        '--model_type=bpe --split_by_whitespace=0'
+                                        ).format(inpath, args.model_prefix,
                                                                    args.vocab_size))
     elif args.mode == 'test':
         sp = spm.SentencePieceProcessor()

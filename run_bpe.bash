@@ -2,6 +2,8 @@
 # By: Aldrian Obaja Muis
 # Run BPE
 
+OPT=$1
+
 mkdir -p "models"
 mkdir -p "outputs"
 for lang in "en" "id" "ja" "zh"; do
@@ -28,6 +30,7 @@ for lang in "en" "id" "ja" "zh"; do
             2> ${model_prefix}.log
         echo "Testing..."
         segmented_file="outputs/${lang}_pud-ud-test.conllu.bpe_${vocab_size}_vocab.txt"
+        echo -n "" > ${segmented_file}
         python3 run_bpe.py \
             --mode test \
             --input_files "${output_file}" \
