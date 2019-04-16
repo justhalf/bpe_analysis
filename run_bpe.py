@@ -11,7 +11,8 @@ import sentencepiece as spm
 from argparse import ArgumentParser
 import os
 
-def encode_as_pieces(sp, in_path, out_path, append=False, lowercase=False):
+def encode_as_pieces(sp, in_path, out_path, append=False,
+                     lowercase=False, no_space=False):
     if append:
         mode = 'a'
     else:
@@ -22,10 +23,12 @@ def encode_as_pieces(sp, in_path, out_path, append=False, lowercase=False):
                 text = line.rstrip('\n')
                 if lowercase:
                     text = text.lower()
+                if no_space:
+                    text = text.replace(' ', '_')
                 pieces = sp.EncodeAsPieces(text)
                 outfile.write('{}\n'.format(' '.join(pieces)))
 
-def get_inpath(args, lowercase=False):
+def get_inpath(args, lowercase=False, no_space=False):
     outpath = args.output_files[0]
     with open(outpath, 'w') as outfile:
         for input_file in args.input_files:
@@ -39,6 +42,8 @@ def get_inpath(args, lowercase=False):
                     elif line.strip() == '':
                         if lowercase:
                             text = text.lower()
+                        if no_space:
+                            text = text.replace(' ', '_')
                         outfile.write(text)
     return outpath
 
@@ -59,9 +64,11 @@ def main():
                         help='The vocab size for BPE (only applicable for train)')
     parser.add_argument('--lowercase', action='store_true',
                         help='lower case tokens')
+    parser.add_argument('--no-space', action='store_true',
+                        help='replace spaces with underscores')
     args = parser.parse_args()
     if args.mode == 'train':
-        inpath = get_inpath(args, args.lowercase)
+        inpath = get_inpath(args, lowercase=args.lowercase, no_space=args.no_space)
         spm.SentencePieceTrainer.Train(('--input={} --model_prefix={} --vocab_size={} '
                                         '--model_type=bpe').format(inpath, args.model_prefix,
                                                                    args.vocab_size))
@@ -79,7 +86,8 @@ def main():
             raise ValueError(('Number of files in output_files ({}) should be 1 or same as '
                               'input_files ({})').format(len(args.output_files), len(in_paths)))
         for in_path, out_path in zip(in_paths, out_paths):
-            encode_as_pieces(sp, in_path, out_path, append=append)
+            encode_as_pieces(sp, in_path, out_path, append=append,
+                             lowercase=args.lowercase, no_space=args.no_space)
 
 if __name__ == '__main__':
     main()
