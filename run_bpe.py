@@ -28,23 +28,28 @@ def encode_as_pieces(sp, in_path, out_path, append=False,
                 pieces = sp.EncodeAsPieces(text)
                 outfile.write('{}\n'.format(' '.join(pieces)))
 
-def get_inpath(args, lowercase=False, replace_space=False):
+def get_inpath(args, lowercase=False, replace_space=False, informat='PUD'):
     outpath = args.output_files[0]
     with open(outpath, 'w') as outfile:
         for input_file in args.input_files:
             with open(input_file, 'r') as infile:
                 for line in infile:
-                    if line.startswith('# text = '):
-                        text = line[len('# text = '):]
-                        continue
-                    elif line.startswith('# ToDoOrigText = '):
-                        text = line[len('# ToDoOrigText = '):]
-                    elif line.strip() == '':
-                        if lowercase:
-                            text = text.lower()
-                        if replace_space:
-                            text = text.replace(' ', '_')
-                        outfile.write(text)
+                    if informat == 'PUD':
+                        if line.startswith('# text = '):
+                            text = line[len('# text = '):]
+                            continue
+                        elif line.startswith('# ToDoOrigText = '):
+                            text = line[len('# ToDoOrigText = '):]
+                        elif line.strip() == '':
+                            if lowercase:
+                                text = text.lower()
+                            if replace_space:
+                                text = text.replace(' ', '_')
+                            outfile.write(text)
+                    elif informat == 'text':
+                        outfile.write(line)
+                    else:
+                        raise ValueError('Unrecognized informat={}'.format(informat))
     return outpath
 
 def main():
@@ -53,6 +58,10 @@ def main():
                         help='Whether to train or test')
     parser.add_argument('--input_files', nargs='+',
                         help='The list of input files to train on or to test on')
+    parser.add_argument('--informat', choices=['PUD', 'text'], default='PUD',
+                        help=('The input format.\n'
+                              'PUD: in original PUD format\n'
+                              'text: one sentence per line'))
     parser.add_argument('--output_files', nargs='+',
                         help=('The (list of) output files to print the BPE segmentation result. '
                               'Should have either a single path or the same number of paths as the '
@@ -71,7 +80,8 @@ def main():
                         help='Replace spaces with underscores')
     args = parser.parse_args()
     if args.mode == 'train':
-        inpath = get_inpath(args, lowercase=args.lowercase, replace_space=args.replace_space)
+        inpath = get_inpath(args, lowercase=args.lowercase, replace_space=args.replace_space,
+                            informat=args.informat)
         options = ['--input={}'.format(inpath)]
         options.append('--model_prefix={}'.format(args.model_prefix))
         options.append('--vocab_size={}'.format(args.vocab_size))

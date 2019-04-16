@@ -11,7 +11,8 @@ fi
 
 mkdir -p "models"
 mkdir -p "outputs"
-for lang in "en" "id" "ja" "zh"; do
+#for lang in "en" "id" "ja" "zh"; do
+for lang in "id"; do
     echo "Doing ${lang}..."
     pud_vocab_size=$(wc -l vocab/${lang}_pud_vocab.txt | cut -d' ' -f1)
     vocab_sizes=()
@@ -43,5 +44,29 @@ for lang in "en" "id" "ja" "zh"; do
             --input_files "${output_file}" \
             --output_files "${segmented_file}" \
             --model_prefix "${model_prefix}"
+        if [ "${lang}" == "id" ]; then
+            echo "Training on morph-normalized text..."
+            model_prefix="models/${lang}_bpe_${vocab_size}_vocab_morph_norm"
+            input_files="morphind/id_pud-ud-test.conllu.morphind.morphnorm"
+            output_file="${model_prefix}.txt"
+            python3 run_bpe.py \
+                --mode train \
+                --input_files "${input_files}" \
+                --output_files "${output_file}" \
+                --model_prefix "${model_prefix}" \
+                --vocab_size ${vocab_size} \
+                ${split_by_whitespace} \
+                ${no_lowercase} \
+                --informat "text" \
+                2> ${model_prefix}.log
+            echo "Testing..."
+            segmented_file="outputs/${lang}_pud-ud-test.conllu.morphind.bpe_${vocab_size}_vocab.txt"
+            echo -n "" > ${segmented_file}
+            python3 run_bpe.py \
+                --mode test \
+                --input_files "${output_file}" \
+                --output_files "${segmented_file}" \
+                --model_prefix "${model_prefix}"
+        fi
     done
 done

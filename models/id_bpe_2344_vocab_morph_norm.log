@@ -1,0 +1,192 @@
+sentencepiece_trainer.cc(116) LOG(INFO) Running command: --input=models/id_bpe_2344_vocab_morph_norm.txt --model_prefix=models/id_bpe_2344_vocab_morph_norm --vocab_size=2344 --model_type=bpe --split_by_whitespace=0
+sentencepiece_trainer.cc(49) LOG(INFO) Starts training with : 
+TrainerSpec {
+  input: models/id_bpe_2344_vocab_morph_norm.txt
+  input_format: 
+  model_prefix: models/id_bpe_2344_vocab_morph_norm
+  model_type: BPE
+  vocab_size: 2344
+  self_test_sample_size: 0
+  character_coverage: 0.9995
+  input_sentence_size: 0
+  shuffle_input_sentence: 1
+  seed_sentencepiece_size: 1000000
+  shrinking_factor: 0.75
+  max_sentence_length: 4192
+  num_threads: 16
+  num_sub_iterations: 2
+  max_sentencepiece_length: 16
+  split_by_unicode_script: 1
+  split_by_number: 1
+  split_by_whitespace: 0
+  treat_whitespace_as_suffix: 0
+  hard_vocab_limit: 1
+  use_all_vocab: 0
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+  pad_id: -1
+  unk_piece: <unk>
+  bos_piece: <s>
+  eos_piece: </s>
+  pad_piece: <pad>
+  unk_surface:  ⁇ 
+}
+NormalizerSpec {
+  name: nmt_nfkc
+  add_dummy_prefix: 1
+  remove_extra_whitespaces: 1
+  escape_whitespaces: 1
+  normalization_rule_tsv: 
+}
+
+trainer_interface.cc(267) LOG(INFO) Loading corpus: models/id_bpe_2344_vocab_morph_norm.txt
+trainer_interface.cc(315) LOG(INFO) Loaded all 1000 sentences
+trainer_interface.cc(330) LOG(INFO) Adding meta_piece: <unk>
+trainer_interface.cc(330) LOG(INFO) Adding meta_piece: <s>
+trainer_interface.cc(330) LOG(INFO) Adding meta_piece: </s>
+trainer_interface.cc(335) LOG(INFO) Normalizing sentences...
+trainer_interface.cc(384) LOG(INFO) all chars count=121542
+trainer_interface.cc(392) LOG(INFO) Done: 99.9564% characters are covered.
+trainer_interface.cc(402) LOG(INFO) Alphabet size=57
+trainer_interface.cc(403) LOG(INFO) Final character coverage=0.999564
+trainer_interface.cc(435) LOG(INFO) Done! preprocessed 1000 sentences.
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=5119 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=937 size=20 all=1503 active=1445 piece=at
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=365 size=40 all=2653 active=2595 piece=▁i
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=282 size=60 all=3831 active=3773 piece=▁r
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=210 size=80 all=5108 active=5050 piece=▁ini
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=159 size=100 all=6226 active=6168 piece=▁g
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=158 min_freq=14
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=124 size=120 all=7290 active=1990 piece=▁mer
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=93 size=140 all=8194 active=2894 piece=▁mereka
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=79 size=160 all=9135 active=3835 piece=▁telah
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=70 size=180 all=9937 active=4637 piece=op
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=65 size=200 all=10641 active=5341 piece=▁tent
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=64 min_freq=12
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=56 size=220 all=11402 active=1721 piece=uah
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=51 size=240 all=12092 active=2411 piece=▁setelah
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=45 size=260 all=12730 active=3049 piece=▁al
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=41 size=280 all=13388 active=3707 piece=ungk
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=38 size=300 all=13942 active=4261 piece=▁ar
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=38 min_freq=10
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=35 size=320 all=14517 active=1546 piece=▁)
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=34 size=340 all=15087 active=2116 piece=▁lain
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=31 size=360 all=15638 active=2667 piece=▁si
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=29 size=380 all=16172 active=3201 piece=▁ma
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=28 size=400 all=16671 active=3700 piece=▁baik
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=28 min_freq=9
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=26 size=420 all=17148 active=1446 piece=ag
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=25 size=440 all=17554 active=1852 piece=▁lu
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=24 size=460 all=18007 active=2305 piece=▁ingg
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=23 size=480 all=18408 active=2706 piece=▁di▁b
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=22 size=500 all=18804 active=3102 piece=▁send
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=22 min_freq=8
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=21 size=520 all=19216 active=1398 piece=▁peNd
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=20 size=540 all=19603 active=1785 piece=▁sen
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=19 size=560 all=19975 active=2157 piece=▁tak
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=18 size=580 all=20314 active=2496 piece=iden
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=17 size=600 all=20598 active=2780 piece=ers
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=17 min_freq=7
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=17 size=620 all=20935 active=1347 piece=▁hidup
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=16 size=640 all=21247 active=1659 piece=uta
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=16 size=660 all=21503 active=1915 piece=istem
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=16 size=680 all=21816 active=2228 piece=▁sebagian▁besar
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=15 size=700 all=22075 active=2487 piece=ember
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=15 min_freq=6
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=14 size=720 all=22409 active=1432 piece=ei
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=14 size=740 all=22626 active=1649 piece=▁art
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=14 size=760 all=22923 active=1946 piece=▁pada▁hari
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=13 size=780 all=23134 active=2157 piece=unya
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=13 size=800 all=23393 active=2416 piece=irikan
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=13 min_freq=5
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=12 size=820 all=23679 active=1444 piece=ank
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=12 size=840 all=23910 active=1675 piece=▁dem
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=12 size=860 all=24146 active=1911 piece=▁tert
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=12 size=880 all=24437 active=2202 piece=▁sejarah
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=11 size=900 all=24703 active=2468 piece=asti
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=11 min_freq=5
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=11 size=920 all=24935 active=1458 piece=▁perd
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=11 size=940 all=25168 active=1691 piece=▁meNber
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=11 size=960 all=25409 active=1932 piece=▁dalam▁sebuah
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=10 size=980 all=25585 active=2108 piece=▁ad
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=10 size=1000 all=25776 active=2299 piece=▁met
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=10 min_freq=4
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=10 size=1020 all=25996 active=1498 piece=▁raja
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=10 size=1040 all=26257 active=1759 piece=▁rendah
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=10 size=1060 all=26488 active=1990 piece=▁negara▁bagian
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=9 size=1080 all=26641 active=2143 piece=▁bl
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=9 size=1100 all=26805 active=2307 piece=▁pel
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=9 min_freq=4
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=9 size=1120 all=27017 active=1542 piece=▁serta
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=9 size=1140 all=27215 active=1740 piece=▁terjadi
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=8 size=1160 all=27380 active=1905 piece=de
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=8 size=1180 all=27541 active=2066 piece=raf
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=8 size=1200 all=27695 active=2220 piece=ungg
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=8 min_freq=4
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=8 size=1220 all=27852 active=1533 piece=▁seh
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=8 size=1240 all=28045 active=1726 piece=▁di▁l
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=8 size=1260 all=28196 active=1877 piece=▁musik
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=8 size=1280 all=28380 active=2061 piece=▁di▁bulan
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=7 size=1300 all=28530 active=2211 piece=ji
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=7 min_freq=4
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=7 size=1320 all=28645 active=1535 piece=▁ed
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=7 size=1340 all=28793 active=1683 piece=tiga
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=7 size=1360 all=28948 active=1838 piece=ampir
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=7 size=1380 all=29100 active=1990 piece=▁naik
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=7 size=1400 all=29284 active=2174 piece=intangi
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=7 min_freq=3
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=7 size=1420 all=29442 active=1616 piece=▁januari
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=7 size=1440 all=29609 active=1783 piece=▁pertahan
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=6 size=1460 all=29722 active=1896 piece=ho
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=6 size=1480 all=29846 active=2020 piece=pun
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=6 size=1500 all=29969 active=2143 piece=iaya
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=6 min_freq=3
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=6 size=1520 all=30093 active=1615 piece=▁kab
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=6 size=1540 all=30214 active=1736 piece=istik
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=6 size=1560 all=30361 active=1883 piece=▁real
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=6 size=1580 all=30474 active=1996 piece=abiskan
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=6 size=1600 all=30588 active=2110 piece=▁tenaga
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=6 min_freq=3
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=6 size=1620 all=30712 active=1646 piece=▁peluang
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=6 size=1640 all=30865 active=1799 piece=▁transisi
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=6 size=1660 all=30960 active=1894 piece=▁tidak▁bisa
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=1680 all=31022 active=1956 piece=ry
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=1700 all=31117 active=2051 piece=irk
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=5 min_freq=3
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=1720 all=31223 active=1658 piece=▁gu
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=1740 all=31327 active=1762 piece=otal
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=1760 all=31425 active=1860 piece=▁gan
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=1780 all=31550 active=1985 piece=enter
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=1800 all=31651 active=2086 piece=▁dana
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=5 min_freq=3
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=1820 all=31757 active=1683 piece=▁pola
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=1840 all=31858 active=1784 piece=▁dasar
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=1860 all=31984 active=1910 piece=▁titik
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=1880 all=32086 active=2012 piece=▁global
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=1900 all=32206 active=2132 piece=ampilkan
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=5 min_freq=3
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=1920 all=32317 active=1716 piece=▁melalui
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=1940 all=32422 active=1821 piece=▁meNjalan
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=1960 all=32523 active=1922 piece=▁peristiwa
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=1980 all=32587 active=1986 piece=▁kemerdekaan
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=2000 all=32605 active=2004 piece=vi
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=4 min_freq=2
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=2020 all=32694 active=1712 piece=ley
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=2040 all=32764 active=1782 piece=▁13
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=2060 all=32848 active=1866 piece=disi
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=2080 all=32932 active=1950 piece=jual
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=2100 all=33008 active=2026 piece=▁3▁%
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=4 min_freq=2
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=2120 all=33088 active=1730 piece=▁kin
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=2140 all=33174 active=1816 piece=atian
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=2160 all=33257 active=1899 piece=uasai
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=2180 all=33337 active=1979 piece=▁imig
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=2200 all=33427 active=2069 piece=amping
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=4 min_freq=2
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=2220 all=33500 active=1737 piece=▁alpen
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=2240 all=33591 active=1828 piece=▁kisah
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=2260 all=33685 active=1922 piece=▁suatu
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=2280 all=33768 active=2005 piece=indungi
+trainer_interface.cc(507) LOG(INFO) Saving model: models/id_bpe_2344_vocab_morph_norm.model
+trainer_interface.cc(531) LOG(INFO) Saving vocabs: models/id_bpe_2344_vocab_morph_norm.vocab
