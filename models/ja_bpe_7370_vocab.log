@@ -1,0 +1,401 @@
+sentencepiece_trainer.cc(116) LOG(INFO) Running command: --input=models/ja_bpe_7370_vocab.txt --model_prefix=models/ja_bpe_7370_vocab --vocab_size=7370 --model_type=bpe --split_by_whitespace=0
+sentencepiece_trainer.cc(49) LOG(INFO) Starts training with : 
+TrainerSpec {
+  input: models/ja_bpe_7370_vocab.txt
+  input_format: 
+  model_prefix: models/ja_bpe_7370_vocab
+  model_type: BPE
+  vocab_size: 7370
+  self_test_sample_size: 0
+  character_coverage: 0.9995
+  input_sentence_size: 0
+  shuffle_input_sentence: 1
+  seed_sentencepiece_size: 1000000
+  shrinking_factor: 0.75
+  max_sentence_length: 4192
+  num_threads: 16
+  num_sub_iterations: 2
+  max_sentencepiece_length: 16
+  split_by_unicode_script: 1
+  split_by_number: 1
+  split_by_whitespace: 0
+  treat_whitespace_as_suffix: 0
+  hard_vocab_limit: 1
+  use_all_vocab: 0
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+  pad_id: -1
+  unk_piece: <unk>
+  bos_piece: <s>
+  eos_piece: </s>
+  pad_piece: <pad>
+  unk_surface:  ⁇ 
+}
+NormalizerSpec {
+  name: nmt_nfkc
+  add_dummy_prefix: 1
+  remove_extra_whitespaces: 1
+  escape_whitespaces: 1
+  normalization_rule_tsv: 
+}
+
+trainer_interface.cc(267) LOG(INFO) Loading corpus: models/ja_bpe_7370_vocab.txt
+trainer_interface.cc(315) LOG(INFO) Loaded all 1000 sentences
+trainer_interface.cc(330) LOG(INFO) Adding meta_piece: <unk>
+trainer_interface.cc(330) LOG(INFO) Adding meta_piece: <s>
+trainer_interface.cc(330) LOG(INFO) Adding meta_piece: </s>
+trainer_interface.cc(335) LOG(INFO) Normalizing sentences...
+trainer_interface.cc(384) LOG(INFO) all chars count=49269
+trainer_interface.cc(392) LOG(INFO) Done: 99.9513% characters are covered.
+trainer_interface.cc(402) LOG(INFO) Alphabet size=1588
+trainer_interface.cc(403) LOG(INFO) Final character coverage=0.999513
+trainer_interface.cc(435) LOG(INFO) Done! preprocessed 1000 sentences.
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=346 min_freq=7
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=76 size=20 all=16776 active=2582 piece=よう
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=55 size=40 all=17539 active=3345 piece=リア
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=42 size=60 all=18399 active=4205 piece=しかし
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=34 size=80 all=18932 active=4738 piece=より
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=30 size=100 all=19530 active=5336 piece=アル
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=30 min_freq=6
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=26 size=120 all=20019 active=1469 piece=私は
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=24 size=140 all=20437 active=1887 piece=だろう
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=22 size=160 all=20819 active=2269 piece=ています
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=20 size=180 all=21236 active=2685 piece=フラン
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=18 size=200 all=21601 active=3050 piece=でも
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=18 min_freq=5
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=17 size=220 all=21971 active=1421 piece=大統
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=16 size=240 all=22334 active=1784 piece=ように
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=15 size=260 all=22663 active=2113 piece=しました
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=14 size=280 all=22929 active=2379 piece=米国
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=13 size=300 all=23253 active=2703 piece=たら
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=13 min_freq=5
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=13 size=320 all=23533 active=1432 piece=警察
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=12 size=340 all=23751 active=1650 piece=りに
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=12 size=360 all=24055 active=1954 piece=,00
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=11 size=380 all=24252 active=2151 piece=しく
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=11 size=400 all=24516 active=2415 piece=学校
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=11 min_freq=4
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=10 size=420 all=24726 active=1423 piece=▁ス
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=10 size=440 all=24929 active=1626 piece=建設
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=9 size=460 all=25154 active=1851 piece=11
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=9 size=480 all=25346 active=2043 piece=プト
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=9 size=500 all=25567 active=2264 piece=最近
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=9 min_freq=4
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=9 size=520 all=25768 active=1472 piece=始めた
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=8 size=540 all=25947 active=1651 piece=18
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=8 size=560 all=26112 active=1816 piece=ッツ
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=8 size=580 all=26307 active=2011 piece=明ら
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=8 size=600 all=26483 active=2187 piece=ビュー
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=8 min_freq=3
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=7 size=620 all=26633 active=1467 piece=▁ロ
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=7 size=640 all=26796 active=1630 piece=トラ
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=7 size=660 all=26982 active=1816 piece=地球
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=7 size=680 all=27170 active=2004 piece=裁判
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=7 size=700 all=27321 active=2155 piece=エリア
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=7 min_freq=3
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=7 size=720 all=27484 active=1517 piece=に関して
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=6 size=740 all=27616 active=1649 piece=いは
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=6 size=760 all=27776 active=1809 piece=を実
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=6 size=780 all=27901 active=1934 piece=ラジ
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=6 size=800 all=28057 active=2090 piece=国境
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=6 min_freq=3
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=6 size=820 all=28218 active=1557 piece=理論
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=6 size=840 all=28373 active=1712 piece=▁現在
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=6 size=860 all=28497 active=1836 piece=初めて
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=6 size=880 all=28626 active=1965 piece=するための
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=900 all=28718 active=2057 piece=あま
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=5 min_freq=3
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=920 all=28848 active=1562 piece=りの
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=940 all=28970 active=1684 piece=ケメ
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=960 all=29096 active=1810 piece=レコ
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=980 all=29218 active=1932 piece=品を
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=1000 all=29352 active=2066 piece=構成
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=5 min_freq=3
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=1020 all=29487 active=1594 piece=規模
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=1040 all=29604 active=1711 piece=あなた
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=1060 all=29723 active=1830 piece=われる
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=1080 all=29837 active=1944 piece=不可欠
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=1100 all=29949 active=2056 piece=が含まれ
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=5 min_freq=3
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=1120 all=30073 active=1614 piece=年までに
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=1140 all=30168 active=1709 piece=45
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=1160 all=30234 active=1775 piece=々の
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=1180 all=30331 active=1872 piece=に送
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=1200 all=30443 active=1984 piece=を送
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=4 min_freq=2
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=1220 all=30528 active=1601 piece=ジュ
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=1240 all=30626 active=1699 piece=ユー
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=1260 all=30721 active=1794 piece=仕事
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=1280 all=30834 active=1907 piece=原因
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=1300 all=30948 active=2021 piece=希望
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=4 min_freq=2
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=1320 all=31054 active=1646 piece=曜日
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=1340 all=31155 active=1747 piece=生活
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=1360 all=31259 active=1851 piece=言う
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=1380 all=31358 active=1950 piece=▁ライ
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=1400 all=31437 active=2029 piece=の映画
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=4 min_freq=2
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=1420 all=31534 active=1662 piece=ティン
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=1440 all=31630 active=1758 piece=ラード
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=1460 all=31733 active=1861 piece=明らか
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=1480 all=31816 active=1944 piece=するまで
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=1500 all=31894 active=2022 piece=レコード
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=4 min_freq=2
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=1520 all=31986 active=1682 piece=ウィンスト
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=1540 all=32076 active=1772 piece=なければならない
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1560 all=32122 active=1818 piece=me
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1580 all=32151 active=1847 piece=いに
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1600 all=32226 active=1922 piece=と会
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=3 min_freq=2
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1620 all=32310 active=1691 piece=の場
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1640 all=32391 active=1772 piece=を落
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1660 all=32452 active=1833 piece=ザイ
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1680 all=32523 active=1904 piece=ハリ
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1700 all=32599 active=1980 piece=一度
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=3 min_freq=2
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1720 all=32675 active=1703 piece=優先
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1740 all=32752 active=1780 piece=十分
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1760 all=32829 active=1857 piece=始ま
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1780 all=32905 active=1933 piece=所有
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1800 all=32990 active=2018 piece=明白
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=3 min_freq=2
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1820 all=33072 active=1727 piece=法の
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1840 all=33160 active=1815 piece=発見
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1860 all=33239 active=1894 piece=能力
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1880 all=33327 active=1982 piece=選手
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1900 all=33408 active=2063 piece=驚き
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=3 min_freq=2
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1920 all=33448 active=1705 piece=がない
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1940 all=33525 active=1782 piece=に建設
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1960 all=33611 active=1868 piece=をした
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1980 all=33693 active=1950 piece=エネル
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=2000 all=33762 active=2019 piece=スコー
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=3 min_freq=2
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=2020 all=33834 active=1756 piece=プラン
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=2040 all=33898 active=1820 piece=万人の
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=2060 all=33974 active=1896 piece=力発電
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=2080 all=34046 active=1968 piece=心を持
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=2100 all=34114 active=2036 piece=現在も
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=3 min_freq=2
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=2120 all=34180 active=1768 piece=▁その後
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=2140 all=34228 active=1816 piece=ているが
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=2160 all=34294 active=1882 piece=イヤーは
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=2180 all=34358 active=1946 piece=プレート
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=2200 all=34430 active=2018 piece=意味する
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=3 min_freq=2
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=2220 all=34480 active=1769 piece=▁パレード
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=2240 all=34535 active=1824 piece=られていた
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=2260 all=34594 active=1883 piece=マーケット
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=2280 all=34650 active=1939 piece=ることはない
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=2300 all=34710 active=1999 piece=していることがわ
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=3 min_freq=2
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2320 all=34739 active=1759 piece=al
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2340 all=34768 active=1788 piece=tr
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2360 all=34783 active=1803 piece=あの
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2380 all=34827 active=1847 piece=たが
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2400 all=34874 active=1894 piece=に属
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=2
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2420 all=34917 active=1784 piece=のモ
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2440 all=34968 active=1835 piece=の種
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2460 all=35017 active=1884 piece=や地
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2480 all=35072 active=1939 piece=を手
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2500 all=35120 active=1987 piece=イミ
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=2
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2520 all=35162 active=1797 piece=グル
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2540 all=35204 active=1839 piece=セク
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2560 all=35242 active=1877 piece=ナポ
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2580 all=35279 active=1914 piece=ホー
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2600 all=35322 active=1957 piece=ンプ
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=2
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2620 all=35365 active=1806 piece=二酸
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2640 all=35410 active=1851 piece=保存
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2660 all=35459 active=1900 piece=分野
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2680 all=35509 active=1950 piece=収入
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2700 all=35556 active=1997 piece=団員
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2720 all=35606 active=1824 piece=変遷
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2740 all=35652 active=1870 piece=定期
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2760 all=35702 active=1920 piece=平壌
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2780 all=35749 active=1967 piece=忘れ
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2800 all=35803 active=2021 piece=手紙
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2820 all=35857 active=1842 piece=方が
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2840 all=35903 active=1888 piece=極端
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2860 all=35954 active=1939 piece=法案
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2880 all=36004 active=1989 piece=王は
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2900 all=36056 active=2041 piece=破り
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2920 all=36104 active=1848 piece=興味
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2940 all=36159 active=1903 piece=記録
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2960 all=36212 active=1956 piece=進展
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2980 all=36265 active=2009 piece=頭で
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3000 all=36300 active=2044 piece=ers
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3020 all=36316 active=1829 piece=▁ティ
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3040 all=36331 active=1844 piece=▁紛争
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3060 all=36360 active=1873 piece=かない
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3080 all=36407 active=1920 piece=これを
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3100 all=36446 active=1959 piece=できた
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3120 all=36484 active=1858 piece=なので
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3140 all=36529 active=1903 piece=に落ち
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3160 all=36583 active=1957 piece=の意味
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3180 all=36634 active=2008 piece=ものが
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3200 all=36687 active=2061 piece=を建設
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3220 all=36741 active=1886 piece=アイス
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3240 all=36779 active=1924 piece=オール
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3260 all=36819 active=1964 piece=コンテ
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3280 all=36856 active=2001 piece=タウン
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3300 all=36904 active=2049 piece=ドラマ
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3320 all=36944 active=1883 piece=ボット
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3340 all=36982 active=1921 piece=ルック
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3360 all=37028 active=1967 piece=ールや
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3380 all=37073 active=2012 piece=入れた
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3400 all=37119 active=2058 piece=唯一の
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3420 all=37168 active=1903 piece=専門家
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3440 all=37202 active=1937 piece=成長し
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3460 all=37241 active=1976 piece=最良の
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3480 all=37279 active=2014 piece=状態で
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3500 all=37326 active=2061 piece=社会的
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3520 all=37373 active=1911 piece=行動の
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3540 all=37417 active=1955 piece=都市は
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3560 all=37440 active=1978 piece=cari
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3580 all=37449 active=1987 piece=▁中国は
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3600 all=37480 active=2018 piece=さらなる
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3620 all=37518 active=1910 piece=と思われ
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3640 all=37558 active=1950 piece=はもはや
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3660 all=37609 active=2001 piece=を付けた
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3680 all=37649 active=2041 piece=ウォール
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3700 all=37686 active=2078 piece=スティー
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3720 all=37726 active=1922 piece=パリ協定
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3740 all=37767 active=1963 piece=ユダヤ教
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3760 all=37804 active=2000 piece=事となる
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3780 all=37850 active=2046 piece=取り組み
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3800 all=37889 active=2085 piece=平均より
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3820 all=37930 active=1934 piece=民主党の
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3840 all=37968 active=1972 piece=経済成長
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3860 all=38010 active=2014 piece=▁1912
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3880 all=38005 active=2009 piece=、1820
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3900 all=38028 active=2032 piece=したように
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3920 all=38062 active=1934 piece=と彼は言う
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3940 all=38096 active=1968 piece=ほとんどの
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3960 all=38134 active=2006 piece=ウィリアム
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3980 all=38172 active=2044 piece=セガールは
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=4000 all=38206 active=2078 piece=ラファティ
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=4020 all=38247 active=1949 piece=年までには
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=4040 all=38282 active=1984 piece=自然保護論
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=4060 all=38303 active=2005 piece=であることを
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=4080 all=38344 active=2046 piece=りにしている
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=4100 all=38382 active=2084 piece=デンマークの
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=4120 all=38427 active=1961 piece=理解している
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=4140 all=38449 active=1983 piece=つの伝統的市場
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=4160 all=38478 active=2012 piece=ミュージカルの
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=4180 all=38504 active=2038 piece=フォルクスワーゲ
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4200 all=38537 active=2071 piece=▁警官
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=1 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4220 all=38551 active=1940 piece=を歩き
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4240 all=38565 active=1954 piece=本製品
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4260 all=38575 active=1964 piece=突然の
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4280 all=38592 active=1981 piece=騒ぎと
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4300 all=38596 active=1985 piece=▁古典学
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=1 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4320 all=38609 active=1942 piece=木製家
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4340 all=38610 active=1943 piece=うまくい
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4360 all=38628 active=1961 piece=せて飛ば
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4380 all=38642 active=1975 piece=には議員
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4400 all=38656 active=1989 piece=の為替は
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=1 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4420 all=38671 active=1946 piece=結成し
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4440 all=38684 active=1959 piece=みに限定
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4460 all=38699 active=1974 piece=を経験し
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4480 all=38711 active=1986 piece=サーミ語
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4500 all=38729 active=2004 piece=ナの手紙
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=1 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4520 all=38744 active=1950 piece=とは思わ
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4540 all=38761 active=1967 piece=リングハ
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4560 all=38776 active=1982 piece=人広告で
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4580 all=38788 active=1994 piece=券に投じ
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4600 all=38803 active=2009 piece=場をそこ
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=1 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4620 all=38817 active=1953 piece=学校に通
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4640 all=38830 active=1966 piece=年に死亡
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4660 all=38841 active=1977 piece=政治家や
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4680 all=38857 active=1993 piece=普通自由
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4700 all=38868 active=2004 piece=法案を提
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=1 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4720 all=38883 active=1957 piece=この地が
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4740 all=38896 active=1970 piece=月変動し
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4760 all=38906 active=1980 piece=省地図だ
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4780 all=38916 active=1990 piece=衆に自分
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4800 all=38934 active=2008 piece=追加的な
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=1 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4820 all=38945 active=1956 piece=受賞作の
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4840 all=38959 active=1970 piece=関係が芽
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4860 all=38961 active=1972 piece=▁アジアや
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4880 all=38959 active=1970 piece=▁当社の携
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4900 all=38957 active=1968 piece=いの状況を
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=1 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4920 all=38967 active=1956 piece=に切り替
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4940 all=38982 active=1971 piece=うまくでき
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4960 all=38998 active=1987 piece=された洗礼
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=4980 all=39012 active=2001 piece=ったにない
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5000 all=39026 active=2015 piece=どれだけの
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=1 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5020 all=39037 active=1961 piece=祉住宅
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5040 all=39050 active=1974 piece=先月何者
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5060 all=39061 active=1985 piece=に落ちると
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5080 all=39075 active=1999 piece=の時代につ
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5100 all=39093 active=2017 piece=は様々な個
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=1 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5120 all=39106 active=1966 piece=オレロは
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5140 all=39119 active=1979 piece=まさに合法
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5160 all=39137 active=1997 piece=をスイスで
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5180 all=39154 active=2014 piece=アプリケー
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5200 all=39169 active=2029 piece=ギーの受付
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=1 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5220 all=39181 active=1969 piece=がマドリ
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5240 all=39194 active=1982 piece=マノイド
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5260 all=39206 active=1994 piece=スは自身が
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5280 all=39219 active=2007 piece=ッジを出演
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5300 all=39232 active=2020 piece=ハーバード
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=1 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5320 all=39244 active=1974 piece=コミュニ
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5340 all=39255 active=1985 piece=はイーグル
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5360 all=39263 active=1993 piece=ビジョンの
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5380 all=39272 active=2002 piece=モハンマド
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5400 all=39285 active=2015 piece=ードが堅苦
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=1 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5420 all=39299 active=1977 piece=罰を遂行
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5440 all=39314 active=1992 piece=二分割する
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5460 all=39326 active=2004 piece=全土の侵略
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5480 all=39341 active=2019 piece=南極を横断
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5500 all=39354 active=2032 piece=嘆願書を提
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=1 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5520 all=39373 active=1985 piece=価を急
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5540 all=39390 active=2002 piece=探りで進
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5560 all=39405 active=2017 piece=コードを扱
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5580 all=39417 active=2029 piece=好きなとき
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5600 all=39434 active=2046 piece=属国として
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=1 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5620 all=39451 active=1987 piece=の部品を
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5640 all=39463 active=1999 piece=べは作詞家
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5660 all=39471 active=2007 piece=建築家は故
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5680 all=39478 active=2014 piece=想化された
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5700 all=39495 active=2031 piece=日のコンテ
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=1 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5720 all=39507 active=1986 piece=枝の主
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5740 all=39521 active=2000 piece=のサリアン
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=5760 all=39534 active=2013 piece=最高の才能
+trainer_interface.cc(507) LOG(INFO) Saving model: models/ja_bpe_7370_vocab.model
+trainer_interface.cc(531) LOG(INFO) Saving vocabs: models/ja_bpe_7370_vocab.vocab

@@ -1,0 +1,70 @@
+sentencepiece_trainer.cc(116) LOG(INFO) Running command: --input=models/ja_bpe_1842_vocab.txt --model_prefix=models/ja_bpe_1842_vocab --vocab_size=1842 --model_type=bpe --split_by_whitespace=0
+sentencepiece_trainer.cc(49) LOG(INFO) Starts training with : 
+TrainerSpec {
+  input: models/ja_bpe_1842_vocab.txt
+  input_format: 
+  model_prefix: models/ja_bpe_1842_vocab
+  model_type: BPE
+  vocab_size: 1842
+  self_test_sample_size: 0
+  character_coverage: 0.9995
+  input_sentence_size: 0
+  shuffle_input_sentence: 1
+  seed_sentencepiece_size: 1000000
+  shrinking_factor: 0.75
+  max_sentence_length: 4192
+  num_threads: 16
+  num_sub_iterations: 2
+  max_sentencepiece_length: 16
+  split_by_unicode_script: 1
+  split_by_number: 1
+  split_by_whitespace: 0
+  treat_whitespace_as_suffix: 0
+  hard_vocab_limit: 1
+  use_all_vocab: 0
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+  pad_id: -1
+  unk_piece: <unk>
+  bos_piece: <s>
+  eos_piece: </s>
+  pad_piece: <pad>
+  unk_surface:  ⁇ 
+}
+NormalizerSpec {
+  name: nmt_nfkc
+  add_dummy_prefix: 1
+  remove_extra_whitespaces: 1
+  escape_whitespaces: 1
+  normalization_rule_tsv: 
+}
+
+trainer_interface.cc(267) LOG(INFO) Loading corpus: models/ja_bpe_1842_vocab.txt
+trainer_interface.cc(315) LOG(INFO) Loaded all 1000 sentences
+trainer_interface.cc(330) LOG(INFO) Adding meta_piece: <unk>
+trainer_interface.cc(330) LOG(INFO) Adding meta_piece: <s>
+trainer_interface.cc(330) LOG(INFO) Adding meta_piece: </s>
+trainer_interface.cc(335) LOG(INFO) Normalizing sentences...
+trainer_interface.cc(384) LOG(INFO) all chars count=49269
+trainer_interface.cc(392) LOG(INFO) Done: 99.9513% characters are covered.
+trainer_interface.cc(402) LOG(INFO) Alphabet size=1588
+trainer_interface.cc(403) LOG(INFO) Final character coverage=0.999513
+trainer_interface.cc(435) LOG(INFO) Done! preprocessed 1000 sentences.
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=346 min_freq=7
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=76 size=20 all=16776 active=2582 piece=よう
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=55 size=40 all=17539 active=3345 piece=リア
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=42 size=60 all=18399 active=4205 piece=しかし
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=34 size=80 all=18932 active=4738 piece=より
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=30 size=100 all=19530 active=5336 piece=アル
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=30 min_freq=6
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=26 size=120 all=20019 active=1469 piece=私は
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=24 size=140 all=20437 active=1887 piece=だろう
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=22 size=160 all=20819 active=2269 piece=ています
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=20 size=180 all=21236 active=2685 piece=フラン
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=18 size=200 all=21601 active=3050 piece=でも
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=18 min_freq=5
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=17 size=220 all=21971 active=1421 piece=大統
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=16 size=240 all=22334 active=1784 piece=ように
+trainer_interface.cc(507) LOG(INFO) Saving model: models/ja_bpe_1842_vocab.model
+trainer_interface.cc(531) LOG(INFO) Saving vocabs: models/ja_bpe_1842_vocab.vocab

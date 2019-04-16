@@ -2,7 +2,12 @@
 # By: Aldrian Obaja Muis
 # Run BPE
 
-OPT=$1
+if [ -z "${split_by_whitespace+x}" ]; then
+    split_by_whitespace=""
+fi
+if [ -z "${no_lowercase+x}" ]; then
+    no_lowercase=""
+fi
 
 mkdir -p "models"
 mkdir -p "outputs"
@@ -26,7 +31,9 @@ for lang in "en" "id" "ja" "zh"; do
             --input_files "${input_files}" \
             --output_files "${output_file}" \
             --model_prefix "${model_prefix}" \
-            --vocab_size ${vocab_size} $* \
+            --vocab_size ${vocab_size} \
+            ${split_by_whitespace} \
+            ${no_lowercase} \
             2> ${model_prefix}.log
         echo "Testing..."
         segmented_file="outputs/${lang}_pud-ud-test.conllu.bpe_${vocab_size}_vocab.txt"
@@ -35,6 +42,6 @@ for lang in "en" "id" "ja" "zh"; do
             --mode test \
             --input_files "${output_file}" \
             --output_files "${segmented_file}" \
-            --model_prefix "${model_prefix}" $*
+            --model_prefix "${model_prefix}"
     done
 done

@@ -1,0 +1,257 @@
+sentencepiece_trainer.cc(116) LOG(INFO) Running command: --input=models/zh_bpe_5465_vocab.txt --model_prefix=models/zh_bpe_5465_vocab --vocab_size=5465 --model_type=bpe --split_by_whitespace=0
+sentencepiece_trainer.cc(49) LOG(INFO) Starts training with : 
+TrainerSpec {
+  input: models/zh_bpe_5465_vocab.txt
+  input_format: 
+  model_prefix: models/zh_bpe_5465_vocab
+  model_type: BPE
+  vocab_size: 5465
+  self_test_sample_size: 0
+  character_coverage: 0.9995
+  input_sentence_size: 0
+  shuffle_input_sentence: 1
+  seed_sentencepiece_size: 1000000
+  shrinking_factor: 0.75
+  max_sentence_length: 4192
+  num_threads: 16
+  num_sub_iterations: 2
+  max_sentencepiece_length: 16
+  split_by_unicode_script: 1
+  split_by_number: 1
+  split_by_whitespace: 0
+  treat_whitespace_as_suffix: 0
+  hard_vocab_limit: 1
+  use_all_vocab: 0
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+  pad_id: -1
+  unk_piece: <unk>
+  bos_piece: <s>
+  eos_piece: </s>
+  pad_piece: <pad>
+  unk_surface:  ⁇ 
+}
+NormalizerSpec {
+  name: nmt_nfkc
+  add_dummy_prefix: 1
+  remove_extra_whitespaces: 1
+  escape_whitespaces: 1
+  normalization_rule_tsv: 
+}
+
+trainer_interface.cc(267) LOG(INFO) Loading corpus: models/zh_bpe_5465_vocab.txt
+trainer_interface.cc(315) LOG(INFO) Loaded all 1000 sentences
+trainer_interface.cc(330) LOG(INFO) Adding meta_piece: <unk>
+trainer_interface.cc(330) LOG(INFO) Adding meta_piece: <s>
+trainer_interface.cc(330) LOG(INFO) Adding meta_piece: </s>
+trainer_interface.cc(335) LOG(INFO) Normalizing sentences...
+trainer_interface.cc(384) LOG(INFO) all chars count=36577
+trainer_interface.cc(392) LOG(INFO) Done: 99.9508% characters are covered.
+trainer_interface.cc(402) LOG(INFO) Alphabet size=2091
+trainer_interface.cc(403) LOG(INFO) Final character coverage=0.999508
+trainer_interface.cc(435) LOG(INFO) Done! preprocessed 1000 sentences.
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=90 min_freq=4
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=31 size=20 all=19479 active=1804 piece=er
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=24 size=40 all=20090 active=2415 piece=國家
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=19 size=60 all=20627 active=2952 piece=包括
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=17 size=80 all=21058 active=3382 piece=年代
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=16 size=100 all=21508 active=3832 piece=需要
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=15 min_freq=4
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=14 size=120 all=21840 active=1386 piece=▁“
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=14 size=140 all=22199 active=1745 piece=199
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=12 size=160 all=22420 active=1966 piece=之一
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=11 size=180 all=22703 active=2249 piece=16
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=11 size=200 all=22936 active=2482 piece=音樂
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=11 min_freq=3
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=10 size=220 all=23183 active=1374 piece=斯的
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=10 size=240 all=23456 active=1647 piece=顯示
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=9 size=260 all=23629 active=1820 piece=原因
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=9 size=280 all=23863 active=2054 piece=聯邦
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=8 size=300 all=24063 active=2254 piece=他在
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=8 min_freq=3
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=8 size=320 all=24267 active=1400 piece=應該
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=8 size=340 all=24509 active=1642 piece=稱為
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=8 size=360 all=24728 active=1861 piece=有可能
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=7 size=380 all=24906 active=2039 piece=創作
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=7 size=400 all=25101 active=2234 piece=拉斯
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=7 min_freq=3
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=7 size=420 all=25284 active=1433 piece=那裡
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=6 size=440 all=25444 active=1593 piece=70
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=6 size=460 all=25579 active=1728 piece=加拿
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=6 size=480 all=25760 active=1909 piece=扮演
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=6 size=500 all=25923 active=2072 piece=維亞
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=6 min_freq=3
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=6 size=520 all=26081 active=1450 piece=降低
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=540 all=26227 active=1596 piece=28
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=560 all=26315 active=1684 piece=代理
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=580 all=26441 active=1810 piece=分別
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=600 all=26577 active=1946 piece=墨西
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=5 min_freq=2
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=620 all=26717 active=1464 piece=才能
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=640 all=26852 active=1599 piece=海岸
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=660 all=26997 active=1744 piece=給了
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=680 all=27132 active=1879 piece=那個
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=700 all=27213 active=1960 piece=伊斯蘭
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=5 min_freq=2
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=5 size=720 all=27350 active=1490 piece=的經濟
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=740 all=27422 active=1562 piece=gy
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=760 all=27504 active=1644 piece=不再
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=780 all=27602 active=1742 piece=以為
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=800 all=27711 active=1851 piece=區的
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=4 min_freq=2
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=820 all=27812 active=1479 piece=地方
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=840 all=27911 active=1578 piece=容易
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=860 all=28014 active=1681 piece=承認
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=880 all=28125 active=1792 piece=未能
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=900 all=28221 active=1888 piece=用戶
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=4 min_freq=2
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=920 all=28334 active=1518 piece=舉辦
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=940 all=28442 active=1626 piece=迪斯
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=960 all=28549 active=1733 piece=首次
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=980 all=28610 active=1794 piece=世界大
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=1000 all=28709 active=1893 piece=導致了
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=4 min_freq=2
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=1020 all=28818 active=1539 piece=獨立的
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=4 size=1040 all=28924 active=1645 piece=1492
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1060 all=28973 active=1694 piece=ds
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1080 all=29037 active=1758 piece=▁f
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1100 all=29081 active=1802 piece=一定
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=3 min_freq=2
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1120 all=29163 active=1533 piece=了多
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1140 all=29228 active=1598 piece=來到
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1160 all=29302 active=1672 piece=具體
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1180 all=29374 active=1744 piece=反應
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1200 all=29455 active=1825 piece=國防
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=3 min_freq=2
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1220 all=29525 active=1538 piece=奧爾
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1240 all=29594 active=1607 piece=封信
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1260 all=29675 active=1688 piece=市民
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1280 all=29745 active=1758 piece=托車
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1300 all=29822 active=1835 piece=政權
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=3 min_freq=2
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1320 all=29900 active=1566 piece=東非
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1340 all=29963 active=1629 piece=法院
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1360 all=30038 active=1704 piece=瑞士
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1380 all=30123 active=1789 piece=的電
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1400 all=30204 active=1870 piece=節日
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=3 min_freq=2
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1420 all=30281 active=1582 piece=街上
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1440 all=30362 active=1663 piece=財政
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1460 all=30437 active=1738 piece=釋放
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1480 all=30522 active=1823 piece=首先
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1500 all=30572 active=1873 piece=▁中國
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=3 min_freq=2
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1520 all=30618 active=1572 piece=以至於
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1540 all=30699 active=1653 piece=在內的
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1560 all=30781 active=1735 piece=形成了
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1580 all=30864 active=1818 piece=法蘭西
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1600 all=30938 active=1892 piece=程度上
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=3 min_freq=2
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1620 all=31011 active=1615 piece=附近的
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1640 all=31059 active=1663 piece=在地中海
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=3 size=1660 all=31121 active=1725 piece=▁澳大利亞
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=1680 all=31159 active=1763 piece=76
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=1700 all=31185 active=1789 piece=ol
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=2
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=1720 all=31208 active=1580 piece=▁你
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=1740 all=31220 active=1592 piece=一帶
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=1760 all=31268 active=1640 piece=中央
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=1780 all=31316 active=1688 piece=事情
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=1800 all=31358 active=1730 piece=任的
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=2
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=1820 all=31401 active=1608 piece=使其
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=1840 all=31450 active=1657 piece=優步
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=1860 all=31492 active=1699 piece=初選
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=1880 all=31538 active=1745 piece=化學
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=1900 all=31584 active=1791 piece=反法
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=1920 all=31627 active=1619 piece=否則
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=1940 all=31666 active=1658 piece=噁心
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=1960 all=31710 active=1702 piece=塔爾
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=1980 all=31758 active=1750 piece=夫在
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2000 all=31803 active=1795 piece=季節
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2020 all=31850 active=1635 piece=專業
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2040 all=31892 active=1677 piece=嶄露
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2060 all=31929 active=1714 piece=年後
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2080 all=31964 active=1749 piece=很有
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2100 all=32009 active=1794 piece=慶祝
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2120 all=32058 active=1646 piece=拉諾
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2140 all=32109 active=1697 piece=摩納
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2160 all=32154 active=1742 piece=方言
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2180 all=32198 active=1786 piece=普爾
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2200 all=32240 active=1828 piece=林肯
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2220 all=32286 active=1656 piece=殊榮
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2240 all=32330 active=1700 piece=洲的
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2260 all=32380 active=1750 piece=激進
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2280 all=32423 active=1793 piece=猜測
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2300 all=32470 active=1840 piece=白人
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2320 all=32523 active=1673 piece=知識
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2340 all=32567 active=1717 piece=立足
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2360 all=32612 active=1762 piece=缺席
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2380 all=32659 active=1809 piece=與其
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2400 all=32701 active=1851 piece=虔誠
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2420 all=32751 active=1683 piece=諾瑪
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2440 all=32800 active=1732 piece=超越
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2460 all=32845 active=1777 piece=通道
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2480 all=32882 active=1814 piece=還能
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2500 all=32933 active=1865 piece=開支
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2520 all=32978 active=1688 piece=頭銜
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2540 all=33024 active=1734 piece=$15
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2560 all=33049 active=1759 piece=ina
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2580 all=33071 active=1781 piece=▁17
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2600 all=33094 active=1804 piece=▁在其
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2620 all=33101 active=1660 piece=▁第一
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2640 all=33123 active=1682 piece=一面是
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2660 all=33165 active=1724 piece=也開始
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2680 all=33207 active=1766 piece=保持著
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2700 all=33250 active=1809 piece=劇作家
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2720 all=33290 active=1700 piece=吸引力
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2740 all=33339 active=1749 piece=型基金
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2760 all=33385 active=1795 piece=對人類
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2780 all=33424 active=1834 piece=年夏天
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2800 all=33455 active=1865 piece=所學校
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2820 all=33498 active=1713 piece=是一名
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2840 all=33547 active=1762 piece=比利時
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2860 all=33591 active=1806 piece=發布了
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2880 all=33628 active=1843 piece=的想法
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2900 all=33670 active=1885 piece=的立場
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2920 all=33714 active=1725 piece=約里奧
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2940 all=33752 active=1763 piece=西北部
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2960 all=33794 active=1805 piece=那些在
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=2980 all=33831 active=1842 piece=1914
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3000 all=33837 active=1848 piece=reco
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3020 all=33858 active=1713 piece=▁聯合國
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3040 all=33900 active=1755 piece=作為一個
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3060 all=33942 active=1797 piece=在華盛頓
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3080 all=33977 active=1832 piece=幾乎沒有
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3100 all=34016 active=1871 piece=歲的兒童
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3120 all=34048 active=1730 piece=社會主義
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3140 all=34086 active=1768 piece=進場系統
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3160 all=34097 active=1779 piece=▁它是一個
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3180 all=34134 active=1816 piece=年級的全國
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3200 all=34170 active=1852 piece=potify
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=2 size=3220 all=34204 active=1741 piece=第一次世界大戰
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=3240 all=34225 active=1762 piece=▁梅爾
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=3260 all=34234 active=1771 piece=人缺席
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=3280 all=34244 active=1781 piece=副武裝
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=3300 all=34258 active=1795 piece=員效忠
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=1 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=3320 all=34272 active=1725 piece=女演員
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=3340 all=34281 active=1734 piece=我會選
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=1 size=3360 all=34298 active=1751 piece=摧毀的
+trainer_interface.cc(507) LOG(INFO) Saving model: models/zh_bpe_5465_vocab.model
+trainer_interface.cc(531) LOG(INFO) Saving vocabs: models/zh_bpe_5465_vocab.vocab

@@ -12,7 +12,7 @@ from argparse import ArgumentParser
 import os
 
 def encode_as_pieces(sp, in_path, out_path, append=False,
-                     lowercase=False, no_space=False):
+                     lowercase=False, replace_space=False):
     if append:
         mode = 'a'
     else:
@@ -23,12 +23,12 @@ def encode_as_pieces(sp, in_path, out_path, append=False,
                 text = line.rstrip('\n')
                 if lowercase:
                     text = text.lower()
-                if no_space:
+                if replace_space:
                     text = text.replace(' ', '_')
                 pieces = sp.EncodeAsPieces(text)
                 outfile.write('{}\n'.format(' '.join(pieces)))
 
-def get_inpath(args, lowercase=False, no_space=False):
+def get_inpath(args, lowercase=False, replace_space=False):
     outpath = args.output_files[0]
     with open(outpath, 'w') as outfile:
         for input_file in args.input_files:
@@ -42,7 +42,7 @@ def get_inpath(args, lowercase=False, no_space=False):
                     elif line.strip() == '':
                         if lowercase:
                             text = text.lower()
-                        if no_space:
+                        if replace_space:
                             text = text.replace(' ', '_')
                         outfile.write(text)
     return outpath
@@ -62,17 +62,23 @@ def main():
                         help='The path to model to save (train) or load (test), without extension')
     parser.add_argument('--vocab_size', type=int,
                         help='The vocab size for BPE (only applicable for train)')
-    parser.add_argument('--lowercase', action='store_true',
-                        help='lower case tokens')
-    parser.add_argument('--no-space', action='store_true',
-                        help='replace spaces with underscores')
+    parser.add_argument('--no_lowercase', dest='lowercase', action='store_false',
+                        help='Do not lower case tokens (by default it does)')
+    parser.add_argument('--split_by_whitespace', action='store_true',
+                        help=('Let Sentencepiece split by whitespace. '
+                              'By default whitespace is considered a normal character.'))
+    parser.add_argument('--replace_space', action='store_true',
+                        help='Replace spaces with underscores')
     args = parser.parse_args()
     if args.mode == 'train':
-        inpath = get_inpath(args, lowercase=args.lowercase, no_space=args.no_space)
-        spm.SentencePieceTrainer.Train(('--input={} --model_prefix={} --vocab_size={} '
-                                        '--model_type=bpe --split_by_whitespace=0'
-                                        ).format(inpath, args.model_prefix,
-                                                                   args.vocab_size))
+        inpath = get_inpath(args, lowercase=args.lowercase, replace_space=args.replace_space)
+        options = ['--input={}'.format(inpath)]
+        options.append('--model_prefix={}'.format(args.model_prefix))
+        options.append('--vocab_size={}'.format(args.vocab_size))
+        options.append('--model_type=bpe')
+        if not args.split_by_whitespace:
+            options.append('--split_by_whitespace=0')
+        spm.SentencePieceTrainer.Train(' '.join(options))
     elif args.mode == 'test':
         sp = spm.SentencePieceProcessor()
         sp.Load('{}.model'.format(args.model_prefix))
@@ -88,7 +94,7 @@ def main():
                               'input_files ({})').format(len(args.output_files), len(in_paths)))
         for in_path, out_path in zip(in_paths, out_paths):
             encode_as_pieces(sp, in_path, out_path, append=append,
-                             lowercase=args.lowercase, no_space=args.no_space)
+                             lowercase=args.lowercase, replace_space=args.replace_space)
 
 if __name__ == '__main__':
     main()

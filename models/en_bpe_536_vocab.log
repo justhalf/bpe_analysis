@@ -1,0 +1,83 @@
+sentencepiece_trainer.cc(116) LOG(INFO) Running command: --input=models/en_bpe_536_vocab.txt --model_prefix=models/en_bpe_536_vocab --vocab_size=536 --model_type=bpe --split_by_whitespace=0
+sentencepiece_trainer.cc(49) LOG(INFO) Starts training with : 
+TrainerSpec {
+  input: models/en_bpe_536_vocab.txt
+  input_format: 
+  model_prefix: models/en_bpe_536_vocab
+  model_type: BPE
+  vocab_size: 536
+  self_test_sample_size: 0
+  character_coverage: 0.9995
+  input_sentence_size: 0
+  shuffle_input_sentence: 1
+  seed_sentencepiece_size: 1000000
+  shrinking_factor: 0.75
+  max_sentence_length: 4192
+  num_threads: 16
+  num_sub_iterations: 2
+  max_sentencepiece_length: 16
+  split_by_unicode_script: 1
+  split_by_number: 1
+  split_by_whitespace: 0
+  treat_whitespace_as_suffix: 0
+  hard_vocab_limit: 1
+  use_all_vocab: 0
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+  pad_id: -1
+  unk_piece: <unk>
+  bos_piece: <s>
+  eos_piece: </s>
+  pad_piece: <pad>
+  unk_surface:  ⁇ 
+}
+NormalizerSpec {
+  name: nmt_nfkc
+  add_dummy_prefix: 1
+  remove_extra_whitespaces: 1
+  escape_whitespaces: 1
+  normalization_rule_tsv: 
+}
+
+trainer_interface.cc(267) LOG(INFO) Loading corpus: models/en_bpe_536_vocab.txt
+trainer_interface.cc(315) LOG(INFO) Loaded all 1000 sentences
+trainer_interface.cc(330) LOG(INFO) Adding meta_piece: <unk>
+trainer_interface.cc(330) LOG(INFO) Adding meta_piece: <s>
+trainer_interface.cc(330) LOG(INFO) Adding meta_piece: </s>
+trainer_interface.cc(335) LOG(INFO) Normalizing sentences...
+trainer_interface.cc(384) LOG(INFO) all chars count=111139
+trainer_interface.cc(392) LOG(INFO) Done: 99.9559% characters are covered.
+trainer_interface.cc(402) LOG(INFO) Alphabet size=54
+trainer_interface.cc(403) LOG(INFO) Final character coverage=0.999559
+trainer_interface.cc(435) LOG(INFO) Done! preprocessed 1000 sentences.
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=2969 min_freq=1
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=763 size=20 all=1662 active=1607 piece=▁in
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=386 size=40 all=2864 active=2809 piece=ro
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=214 size=60 all=4081 active=4026 piece=id
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=167 size=80 all=5426 active=5371 piece=ter
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=127 size=100 all=6591 active=6536 piece=um
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=126 min_freq=15
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=102 size=120 all=7715 active=2068 piece=oun
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=81 size=140 all=8764 active=3117 piece=un
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=72 size=160 all=9639 active=3992 piece=ial
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=66 size=180 all=10481 active=4834 piece=ed▁to
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=58 size=200 all=11304 active=5657 piece=so
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=58 min_freq=12
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=52 size=220 all=12105 active=1769 piece=ace
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=47 size=240 all=12928 active=2592 piece=▁ad
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=44 size=260 all=13669 active=3333 piece=▁tw
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=41 size=280 all=14466 active=4130 piece=ost
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=38 size=300 all=15140 active=4804 piece=▁pol
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=38 min_freq=10
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=35 size=320 all=15753 active=1588 piece=▁bec
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=33 size=340 all=16346 active=2181 piece=▁pres
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=30 size=360 all=16851 active=2686 piece=ade
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=28 size=380 all=17361 active=3196 piece=ild
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=27 size=400 all=17858 active=3693 piece=▁in▁a
+bpe_model_trainer.cc(166) LOG(INFO) Updating active symbols. max_freq=27 min_freq=8
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=25 size=420 all=18338 active=1444 piece=ident
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=24 size=440 all=18808 active=1914 piece=▁at▁the
+bpe_model_trainer.cc(257) LOG(INFO) Added: freq=23 size=460 all=19257 active=2363 piece=▁great
+trainer_interface.cc(507) LOG(INFO) Saving model: models/en_bpe_536_vocab.model
+trainer_interface.cc(531) LOG(INFO) Saving vocabs: models/en_bpe_536_vocab.vocab
