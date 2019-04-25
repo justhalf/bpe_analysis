@@ -12,14 +12,16 @@ from argparse import ArgumentParser
 HEADLINE_PATTERN = re.compile(r"^# ([a-zA-Z_]*) = (.*)$")
 
 def iter_file(fin):
-    ret = {"len": 0, "word": [], "pos": [], "head": [], "type": [], "space_after": [], "info": {}}
+    ret = {"len": 0, "word": [], "lemma": [], "pos": [],
+           "head": [], "type": [], "space_after": [], "info": {}}
     for line in fin:
         line = line.strip()
         # yield and reset
         if len(line) == 0:
             if ret["len"] > 0:
                 yield ret
-            ret = {"len": 0, "word": [], "pos": [], "head": [], "type": [], "space_after": [], "info": {}}
+            ret = {"len": 0, "word": [], "lemma": [], "pos": [],
+                   "head": [], "type": [], "space_after": [], "info": {}}
         elif line[0] == "#":
             # read head lines
             match = re.match(HEADLINE_PATTERN, line)
@@ -36,6 +38,7 @@ def iter_file(fin):
             #
             ret["len"] += 1
             ret["word"].append(fields[1])
+            ret["lemma"].append(fields[2])
             ret["pos"].append(fields[3])
             ret["head"].append(int(fields[6]))
             ret["type"].append(fields[7])
@@ -51,6 +54,7 @@ def iter_file(fin):
 def main(fin, fout, mode, replace_space, replace_char, lowercase):
     MY_SPACE = chr(0x2590)
     tok_mode = (mode=="tok")
+    lemma_mode = (mode=="detok-lemma")
     orig_mode = (mode=="orig")
     if replace_char is None:
         replace_char = MY_SPACE
@@ -63,11 +67,12 @@ def main(fin, fout, mode, replace_space, replace_char, lowercase):
                 s = one_parse["info"]["text"]
         else:
             ts = []
-            for i in range(len(one_parse["word"])-1):
-                ts.append(one_parse["word"][i])
+            col = "lemma" if lemma_mode else "word"
+            for i in range(len(one_parse[col])-1):
+                ts.append(one_parse[col][i])
                 if tok_mode or one_parse["space_after"][i]:
                     ts.append(" ")
-            ts.append(one_parse["word"][-1])
+            ts.append(one_parse[col][-1])
             s = "".join(ts)
         if lowercase:
             s = str.lower(s)
@@ -81,11 +86,13 @@ def main(fin, fout, mode, replace_space, replace_char, lowercase):
 #
 # python3 conllu2plain --mode tok <? >?
 # python3 conllu2plain --mode detok <? >?
+# python3 conllu2plain --mode detok-lemma <? >?
 # python3 conllu2plain --mode orig <? >?
 if __name__ == '__main__':
     parser = ArgumentParser(description='Converting conllu file to plain text files with several modes.')
-    parser.add_argument("--mode", type=str, default="orig", choices=["tok", "detok", "orig"],
-                        help="tok: UD tokenized, detok: De-tok by UD's SpaceAfter, orig: read from headline comments")
+    parser.add_argument("--mode", type=str, default="orig",
+                        choices=["tok", "detok", "detok-lemma", "orig"],
+                        help="tok: UD tokenized, detok: De-tok by UD's SpaceAfter, detok-lemma: De-tok (lemma), orig: read from headline comments")
     parser.add_argument("--replace_space", type=int, default=0,
                         help="Whether replace spaces with special token, which can be useful for extending MWE")
     parser.add_argument("--replace_char", type=str, help="Replace with other chars.")
