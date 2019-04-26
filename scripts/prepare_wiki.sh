@@ -33,7 +33,9 @@ echo "Step 1: xml2raw for the language of ${CUR_LANG}"
 mkdir -p "wiki_${CUR_LANG}"
 mkdir -p "wiki_${CUR_LANG}/extracted"
 # download the data
+if [[ ! -f "wiki_${CUR_LANG}/wiki_${CUR_LANG}.xml.bz2" ]]; then
 wget -nc https://dumps.wikimedia.org/${CUR_LANG}wiki/20181120/${CUR_LANG}wiki-20181120-pages-articles.xml.bz2 -O "wiki_${CUR_LANG}/wiki_${CUR_LANG}.xml.bz2"
+fi
 # extract
 # todo(warning): with the current splitting size (150M), all languages will be within 100 pieces, thus all files are in dir AA
 python3 wikiextractor/WikiExtractor.py "wiki_${CUR_LANG}/wiki_${CUR_LANG}.xml.bz2" -c -b 150M -o "wiki_${CUR_LANG}/extracted" --no-template --processes 8
@@ -46,7 +48,7 @@ done
 mkdir -p "wiki_${CUR_LANG}/tokenized"
 for f in wiki_${CUR_LANG}/extracted/wiki_*.c.bz2; do
 #echo "bzcat $f | bash $ZZ/ztools/udpipe/model/models/udpipe_tok.sh ${CUR_LANG} | bzip2 >zr_${CUR_LANG}/tokenized/`basename $f .c.bz2`.ct.bz2"
-bzcat $f | udpipe/udpipe --tokenize --output horizontal udpipe/${CUR_LANG}.udpipe | bzip2 >wiki_${CUR_LANG}/tokenized/`basename $f .c.bz2`.ct.bz2
+bzcat $f | udpipe/udpipe --tokenize --output ${UDPIPE_FORMAT} udpipe/${CUR_LANG}.udpipe | bzip2 >wiki_${CUR_LANG}/tokenized/`basename $f .c.bz2`.ct.bz2
 done
 # concat them together (also, delete one token (no spaces) lines)
 bzcat wiki_${CUR_LANG}/tokenized/*.ct.bz2 | grep "\s" | bzip2 >wiki_${CUR_LANG}/wiki_${CUR_LANG}.tok.bz2
@@ -62,5 +64,7 @@ fi
 # =====
 
 # go!
-get_tools
-CUR_LANG=id prep_wiki
+#get_tools
+#CUR_LANG=id UDPIPE_FORMAT=horizontal prep_wiki
+CUR_LANG=ja UDPIPE_FORMAT=conllu prep_wiki
+CUR_LANG=id UDPIPE_FORMAT=conllu prep_wiki

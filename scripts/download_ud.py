@@ -71,6 +71,9 @@ def main():
         deal_one(lang_code, lang_name, treebank_name)
         # PUD
         deal_one(lang_code, lang_name, "PUD")
+        # merge
+        my_system("for cl in en id ja zh; do cat ${cl}_*.all.orig.txt >${cl}_merge.all.orig.txt; done", print=True)
+        my_system("for cl in en id ja zh; do cat ${cl}_*.all.tok.txt >${cl}_merge.all.tok.txt; done", print=True)
 
 if __name__ == '__main__':
     main()

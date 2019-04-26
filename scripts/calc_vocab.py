@@ -153,12 +153,49 @@ if __name__ == '__main__':
 
 # scripts
 """
+# =====
 # collect data and vocab info
+# (in dir data_ud2/../)
 for f in data_ud/*.all.tok.txt data_wiki/*.txt; do 
 echo; echo == calculating for $f; python3 calc_vocab.py $f $f.voc; 
 done |& tee log.vocab
-# bpe for them
-# apply to PUD test
-
+# =====
+# rename the data to make things clear
+# (in dir data_ud2)
+for cl in en id ja zh; do
+if [[ $cl == en ]]; then
+tn=ewt
+else
+tn=gsd
+fi
+for suffix in conllu orig.txt tok.txt; do
+cat ../data_ud/${cl}_{${tn},pud}.all.${suffix} > ${cl}_ud2.${suffix}
+done
+done
+# =====
+# BPE for UD
+# (in dir data_ud2)
+declare -A vsizes=( ["en"]=24884 ["id"]=23923 ["ja"]=26460 ["zh"]=22396 )
+for cl in en id ja zh; do
+curvs=${vsizes[$cl]}
+for vs in $(($curvs/2)) $curvs $(($curvs*2)); do
+../../bin/spm_train --input=${cl}_ud2.orig.txt --model_prefix=./models/${cl}_ud2_${vs} --vocab_size=${vs} --model_type=bpe --split_by_whitespace=0 |& tee ./models/${cl}_ud2_${vs}.log
+../../bin/spm_encode --model=./models/${cl}_ud2_${vs}.model <${cl}_ud2.orig.txt >./outputs/${cl}_ud2.bpe_${vs}.txt
+done
+done
+# =====
+# BPE for WIKI
+# (in dir data_wiki)
+# for cl in id ja zh en; do
+for cl in en; do
+if [[ $cl == en ]]; then
+infix=0.25
+else
+infix=bz2
+fi
+for vs in 10000 30000 60000 90000; do
+../../bin/spm_train --input=wiki_${cl}.detok.${infix}.txt --model_prefix=./models/${cl}_wiki_${vs} --vocab_size=${vs} --model_type=bpe --split_by_whitespace=0 >./models/${cl}_wiki_${vs}.log 2>&1
+../../bin/spm_encode --model=./models/${cl}_wiki_${vs}.model <../data_ud2/${cl}_ud2.orig.txt >./outputs/${cl}_ud2.bpe_${vs}.txt
+done
+done
 """
-
