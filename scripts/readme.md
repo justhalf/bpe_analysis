@@ -19,3 +19,11 @@ python3 conllu2plain.py --mode detok-lemma < (input) > (output)
 ```shell
 python get_sentences_by_affixes.py <input file> --affix <data/affixes/{id,...}> -o data/affixes/id/sentences_ud2.tsv -v
 ```
+
+Create a comparison table for analysis
+
+```shell
+python create_sentence_comparison_table.py <file containing sentence ID> <BPE results (can be multiple files)> -o <output file> -v
+(Example)
+mkdir ../analysis && python create_sentence_comparison_table.py ../data/affixes/id/sentences_ud2.tsv ../outputs/id_ud2.bpe_*.txt -o ../analysis/id_ud2.bpe.affix.v1.tsv -v
+```
