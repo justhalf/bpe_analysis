@@ -186,16 +186,31 @@ done
 # =====
 # BPE for WIKI
 # (in dir data_wiki)
-# for cl in id ja zh en; do
-for cl in en; do
-if [[ $cl == en ]]; then
-infix=0.25
-else
-infix=bz2
-fi
+for cl in id ja zh en; do
+infix=cut
 for vs in 10000 30000 60000 90000; do
 ../../bin/spm_train --input=wiki_${cl}.detok.${infix}.txt --model_prefix=./models/${cl}_wiki_${vs} --vocab_size=${vs} --model_type=bpe --split_by_whitespace=0 >./models/${cl}_wiki_${vs}.log 2>&1
 ../../bin/spm_encode --model=./models/${cl}_wiki_${vs}.model <../data_ud2/${cl}_ud2.orig.txt >./outputs/${cl}_ud2.bpe_${vs}.txt
 done
+done
+# =====
+# apply BPE for wiki
+for cl in id ja zh en; do
+infix=cut
+for vs in 10000 30000 60000 90000; do
+../../bin/spm_encode --model=./models/${cl}_wiki_${vs}.model <wiki_${cl}.detok.${infix}.txt >./outputs/${cl}_wikicut.bpe_${vs}.txt
+done
+done
+# =====
+# BPE with normed data
+# (in dir data_wiki2)
+# for cl in ja; do
+infix=cut
+for vs in 10000 30000 60000 90000; do
+cl=ja
+f=wiki_ja.detok.norm.cut.txt
+../../bin/spm_train --input=$f --model_prefix=./models/${cl}_norm_wiki_${vs} --vocab_size=${vs} --model_type=bpe --split_by_whitespace=0 >./models/${cl}_norm_wiki_${vs}.log 2>&1
+../../bin/spm_encode --model=./models/${cl}_norm_wiki_${vs}.model <./udnorm/ja_merge.all.orig.norm.txt >./outputs/${cl}_norm_ud2.bpe_${vs}.txt
+../../bin/spm_encode --model=./models/${cl}_norm_wiki_${vs}.model <$f >./outputs/${cl}_norm_wikicut.bpe_${vs}.txt
 done
 """
