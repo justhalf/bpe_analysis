@@ -40,7 +40,12 @@ def main(args):
         filename = path.join(args.dir_affixes, filename)
         with open(filename) as f:
             for line in f:
-                affixes[cat].append(line.strip())
+                line = line.strip()
+                if line.startswith('#'):  # comment out
+                    continue
+                if len(line) == 1:  # ignore one-character affixes
+                    continue
+                affixes[cat].append(line)
             if verbose:
                 logger.info(f'Read {len(affixes[cat])} items'
                             ' from {filename}')
