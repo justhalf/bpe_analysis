@@ -96,5 +96,6 @@ def main():
 if __name__ == '__main__':
     main()
 
-#
+
+# example usage:
 # python3 extract_multi_examples.py -f ../data_ud2/zh_ud2.conllu -o zh.examples
