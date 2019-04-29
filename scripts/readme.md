@@ -27,3 +27,10 @@ python create_sentence_comparison_table.py <file containing sentence ID> <BPE re
 (Example)
 mkdir ../analysis && python create_sentence_comparison_table.py ../data/affixes/id/sentences_ud2.tsv ../outputs/id_ud2.bpe_*.txt -o ../analysis/id_ud2.bpe.affix.v1.tsv -v
 ```
+
+For Japanese, we use [tsutsuji dictionary], which contain 15K+ functional suffixes. Some of suffixes are divided into multiple tokens in Japanese UDs' standard, so we first delete white-space and do string matching. (This is not very elegant but somehow works.)
+
+```shell
+(Example)
+python scripts/get_sentences_by_affixes.py data/data_ud/zh_merge.all.tok.txt --affix data/affixes/zh/ -v -o test.tsv --del-space
+```

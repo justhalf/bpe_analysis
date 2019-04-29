@@ -43,23 +43,31 @@ def main(args):
                 line = line.strip()
                 if line.startswith('#'):  # comment out
                     continue
-                if 'zh/' not in filename and 'ja/' not in filename:
+                if 'zh/' not in filename:
                     if len(line) == 1:  # ignore one-character affixes
                         continue
                 affixes[cat].append(line)
             if verbose:
                 logger.info(f'Read {len(affixes[cat])} items'
-                            ' from {filename}')
+                            f' from {filename}')
 
     # Sort
     for key, val in affixes.items():
         affixes[key] = sorted(val, key=lambda s: len(s), reverse=True)
     # Defining patterns
     pattern = {}
-    s = '(' + '|'.join(affixes['prefixes']) + ')'
-    pattern['prefix'] = re.compile(r'^{s}\w|\s{s}\w'.format(s=s))
-    s = '(' + '|'.join(affixes['suffixes']) + ')'
-    pattern['suffix'] = re.compile(r'\w{s}$|\w{s}\s'.format(s=s))
+    if len(affixes['prefixes']) > 0:
+        s = '(' + '|'.join(affixes['prefixes']) + ')'
+        if 'ja' in args.path_input:  # No whitespace
+            pattern['prefix'] = re.compile(r'{s}\w'.format(s=s))
+        else:
+            pattern['prefix'] = re.compile(r'^{s}\w|\s{s}\w'.format(s=s))
+    if len(affixes['suffixes']) > 0:
+        s = '(' + '|'.join(affixes['suffixes']) + ')'
+        if 'ja' in args.path_input:  # No whitespace
+            pattern['suffix'] = re.compile(r'\w{s}'.format(s=s))
+        else:
+            pattern['suffix'] = re.compile(r'\w{s}$|\w{s}\s'.format(s=s))
 
     # Pattern for removing punctuation and numbers
     r_punct = re.compile(r'[!"#\$%&\\\'\(\)\*\+,-\./:;<=>\?@\[\]\^_`\{\|\}~]', re.UNICODE)
@@ -72,18 +80,22 @@ def main(args):
             for i, line in tqdm(enumerate(fin, start=1)):
                 line = line.strip()
                 text = r_punct.sub('', line)
+                if 'ja' in args.path_input:
+                    text = text.replace(' ', '')
                 buff = [str(i)]
                 cats = []
-                for m in pattern['prefix'].finditer(text):
-                    for g in [1, 2]:
-                        if m.group(g) is None:
-                            continue
-                        cats.append(f'{m.group(g).strip()}-')
-                for m in pattern['suffix'].finditer(text):
-                    for g in [1, 2]:
-                        if m.group(g) is None:
-                            continue
-                        cats.append(f'-{m.group(g).strip()}')
+                if 'prefix' in pattern:
+                    for m in pattern['prefix'].finditer(text):
+                        for g in m.groups():
+                            if g is None:
+                                continue
+                            cats.append(f'{g.strip()}-')
+                if 'suffix' in pattern:
+                    for m in pattern['suffix'].finditer(text):
+                        for g in m.groups():
+                            if g is None:
+                                continue
+                            cats.append(f'-{g.strip()}')
                 if len(cats) == 0:
                     continue
                 buff.append(','.join(sorted(list(set(cats)))))
