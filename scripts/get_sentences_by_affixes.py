@@ -43,8 +43,9 @@ def main(args):
                 line = line.strip()
                 if line.startswith('#'):  # comment out
                     continue
-                if len(line) == 1:  # ignore one-character affixes
-                    continue
+                if 'zh/' not in filename and 'ja/' not in filename:
+                    if len(line) == 1:  # ignore one-character affixes
+                        continue
                 affixes[cat].append(line)
             if verbose:
                 logger.info(f'Read {len(affixes[cat])} items'
@@ -86,6 +87,8 @@ def main(args):
                 if len(cats) == 0:
                     continue
                 buff.append(','.join(sorted(list(set(cats)))))
+                if args.del_space:
+                    line = line.replace(' ', '')
                 buff.append(line)
                 fout.write('\t'.join(buff) + '\n')
     return 0
@@ -101,6 +104,8 @@ if __name__ == '__main__':
     parser.add_argument('-o', '--output', dest='path_output',
                         required=True,
                         help='path to an output file')
+    parser.add_argument('--del-space', action='store_true',
+                        help='delete spaces in output texts [for zh/ja]')
     parser.add_argument('-v', '--verbose',
                         action='store_true', default=False,
                         help='verbose output')
