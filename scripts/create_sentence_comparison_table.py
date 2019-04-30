@@ -26,13 +26,21 @@ def main(args):
     verbose = args.verbose
 
     df = pd.read_csv(args.path_sentid, delimiter='\t',
+                     encoding='utf_8',
                      names=['id', 'affixes', 'text'])
     sentids = df['id'].values - 1
+    max_sentid = max(sentids) + 1
     for path_input in args.path_result:
         if verbose:
             logger.info(f'Read {path_input}')
         name = path.basename(path_input)
-        texts = np.array([line.strip() for line in open(path_input)])
+        texts = []
+        with open(path_input) as f:
+            for i, line in enumerate(f):
+                if i > max_sentid:
+                    break
+                texts.append(line.strip())
+        texts = np.array(texts)
         df[name] = texts[sentids]
 
     if verbose:
