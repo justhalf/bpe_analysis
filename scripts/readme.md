@@ -34,3 +34,14 @@ For Japanese, we use [tsutsuji dictionary], which contain 15K+ functional suffix
 (Example)
 python scripts/get_sentences_by_affixes.py data/data_ud/zh_merge.all.tok.txt --affix data/affixes/zh/ -v -o test.tsv --del-space
 ```
+
+
+## Calculate the coverage of affixes
+
+You need to run `get_sentences_by_affixes.py` to obtain sentence lists. (See the instruction above.)
+
+```shell
+python calc_affix_coverage.py <path to an output file of get_sentences_by_affixes.py> --vocab <paths to BPE vocab files> -o <path to an output file> -v
+
+python calc_affix_coverage.py ../data/affixes/zh/sentences_ud2.tsv --vocab ../data_ud2/models/zh_ud2_*.vocab -o ../data/affixes/zh/coverage_ud2.tsv -v
+```
