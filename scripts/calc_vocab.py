@@ -178,9 +178,20 @@ done
 declare -A vsizes=( ["en"]=24884 ["id"]=23923 ["ja"]=26460 ["zh"]=22396 )
 for cl in en id ja zh; do
 curvs=${vsizes[$cl]}
-for vs in $(($curvs/2)) $curvs $(($curvs*2)); do
+for vs in $(($curvs/4)) $(($curvs/2)) $curvs $(($curvs*2)); do
 ../../bin/spm_train --input=${cl}_ud2.orig.txt --model_prefix=./models/${cl}_ud2_${vs} --vocab_size=${vs} --model_type=bpe --split_by_whitespace=0 |& tee ./models/${cl}_ud2_${vs}.log
 ../../bin/spm_encode --model=./models/${cl}_ud2_${vs}.model <${cl}_ud2.orig.txt >./outputs/${cl}_ud2.bpe_${vs}.txt
+done
+done
+# =====
+# BPE with normed UD
+declare -A vsizes=( ["en"]=24884 ["id"]=23923 ["ja"]=26460 ["zh"]=22396 )
+for cl in id ja; do
+curvs=${vsizes[$cl]}
+cln="${cl}_norm"
+for vs in $(($curvs/4)) $(($curvs/2)) $curvs $(($curvs*2)); do
+../../bin/spm_train --input=${cln}_ud2.orig.txt --model_prefix=./models/${cln}_ud2_${vs} --vocab_size=${vs} --model_type=bpe --split_by_whitespace=0 |& tee ./models/${cln}_ud2_${vs}.log
+../../bin/spm_encode --model=./models/${cln}_ud2_${vs}.model <${cln}_ud2.orig.txt >./outputs/${cln}_ud2.bpe_${vs}.txt
 done
 done
 # =====
@@ -202,15 +213,16 @@ for vs in 10000 30000 60000 90000; do
 done
 done
 # =====
-# BPE with normed data
+# BPE with normed WIKI
 # (in dir data_wiki2)
-# for cl in ja; do
+# for cl in id ja; do
+for cl in id; do
 infix=cut
 for vs in 10000 30000 60000 90000; do
-cl=ja
-f=wiki_ja.detok.norm.cut.txt
+f=wiki_${cl}.detok.norm.cut.txt
 ../../bin/spm_train --input=$f --model_prefix=./models/${cl}_norm_wiki_${vs} --vocab_size=${vs} --model_type=bpe --split_by_whitespace=0 >./models/${cl}_norm_wiki_${vs}.log 2>&1
-../../bin/spm_encode --model=./models/${cl}_norm_wiki_${vs}.model <./udnorm/ja_merge.all.orig.norm.txt >./outputs/${cl}_norm_ud2.bpe_${vs}.txt
+    ../../bin/spm_encode --model=./models/${cl}_norm_wiki_${vs}.model <../data_ud2_norm/${cl}_norm_ud2.orig.txt >./outputs/${cl}_norm_ud2.bpe_${vs}.txt
 ../../bin/spm_encode --model=./models/${cl}_norm_wiki_${vs}.model <$f >./outputs/${cl}_norm_wikicut.bpe_${vs}.txt
+done
 done
 """
