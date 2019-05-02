@@ -41,7 +41,247 @@ Overall, prec1=0.5875, prec2=0.6186, f1=0.6027
 zh 22396
 Overall, prec1=0.5880, prec2=0.5338, f1=0.5596
 zh 44792
-Overall, prec1=0.5375, prec2=0.4057, f1=0.4624"""
+Overall, prec1=0.5375, prec2=0.4057, f1=0.4624
+id 2000
+Overall, prec1=0.2674, prec2=0.4776, f1=0.3428
+id 4000
+Overall, prec1=0.3527, prec2=0.5353, f1=0.4252
+id 6000
+Overall, prec1=0.4007, prec2=0.5536, f1=0.4649
+id 8000
+Overall, prec1=0.4322, prec2=0.5592, f1=0.4876
+id 10000
+Overall, prec1=0.4602, prec2=0.5662, f1=0.5077
+id 12000
+Overall, prec1=0.4796, prec2=0.5657, f1=0.5191
+id 14000
+Overall, prec1=0.5089, prec2=0.5788, f1=0.5416
+id 16000
+Overall, prec1=0.5092, prec2=0.5617, f1=0.5342
+id 18000
+Overall, prec1=0.5309, prec2=0.5708, f1=0.5501
+id 20000
+Overall, prec1=0.5543, prec2=0.5803, f1=0.5670
+id 22000
+Overall, prec1=0.5528, prec2=0.5631, f1=0.5579
+id 24000
+Overall, prec1=0.5406, prec2=0.5379, f1=0.5393
+id 26000
+Overall, prec1=0.5504, prec2=0.5399, f1=0.5451
+id 28000
+Overall, prec1=0.5574, prec2=0.5389, f1=0.5480
+id 30000
+Overall, prec1=0.5616, prec2=0.5351, f1=0.5480
+id 32000
+Overall, prec1=0.5639, prec2=0.5294, f1=0.5461
+id 34000
+Overall, prec1=0.5651, prec2=0.5225, f1=0.5429
+id 36000
+Overall, prec1=0.5653, prec2=0.5147, f1=0.5388
+id 38000
+Overall, prec1=0.5658, prec2=0.5072, f1=0.5349
+id 40000
+Overall, prec1=0.5662, prec2=0.4996, f1=0.5308
+id 42000
+Overall, prec1=0.5648, prec2=0.4904, f1=0.5249
+id 44000
+Overall, prec1=0.5632, prec2=0.4811, f1=0.5189
+id 46000
+Overall, prec1=0.5646, prec2=0.4743, f1=0.5155
+id 48000
+Overall, prec1=0.5658, prec2=0.4673, f1=0.5119
+id 50000
+Overall, prec1=0.5659, prec2=0.4595, f1=0.5072
+id 52000
+Overall, prec1=0.5659, prec2=0.4516, f1=0.5023
+id 54000
+Overall, prec1=0.5655, prec2=0.4432, f1=0.4969
+id 56000
+Overall, prec1=0.5641, prec2=0.4342, f1=0.4907
+id 58000
+Overall, prec1=0.5607, prec2=0.4237, f1=0.4826
+id 60000
+Overall, prec1=0.5548, prec2=0.4115, f1=0.4725
+ja 2000
+Overall, prec1=0.2573, prec2=0.0356, f1=0.0626
+ja 4000
+Overall, prec1=0.3537, prec2=0.4460, f1=0.3945
+ja 6000
+Overall, prec1=0.3889, prec2=0.4341, f1=0.4102
+ja 8000
+Overall, prec1=0.4085, prec2=0.4252, f1=0.4167
+ja 10000
+Overall, prec1=0.4217, prec2=0.4179, f1=0.4198
+ja 12000
+Overall, prec1=0.4300, prec2=0.4099, f1=0.4197
+ja 14000
+Overall, prec1=0.4412, prec2=0.4075, f1=0.4237
+ja 16000
+Overall, prec1=0.4398, prec2=0.3942, f1=0.4157
+ja 18000
+Overall, prec1=0.4439, prec2=0.3890, f1=0.4147
+ja 20000
+Overall, prec1=0.4519, prec2=0.3883, f1=0.4177
+ja 22000
+Overall, prec1=0.4497, prec2=0.3779, f1=0.4107
+ja 24000
+Overall, prec1=0.4502, prec2=0.3700, f1=0.4062
+ja 26000
+Overall, prec1=0.4506, prec2=0.3620, f1=0.4015
+ja 28000
+Overall, prec1=0.4497, prec2=0.3554, f1=0.3971
+ja 30000
+Overall, prec1=0.4469, prec2=0.3491, f1=0.3920
+ja 32000
+Overall, prec1=0.4461, prec2=0.3443, f1=0.3886
+ja 34000
+Overall, prec1=0.4456, prec2=0.3397, f1=0.3855
+ja 36000
+Overall, prec1=0.4455, prec2=0.3354, f1=0.3827
+ja 38000
+Overall, prec1=0.4446, prec2=0.3305, f1=0.3792
+ja 40000
+Overall, prec1=0.4434, prec2=0.3255, f1=0.3754
+ja 42000
+Overall, prec1=0.4423, prec2=0.3206, f1=0.3717
+ja 44000
+Overall, prec1=0.4419, prec2=0.3161, f1=0.3686
+ja 46000
+Overall, prec1=0.4410, prec2=0.3113, f1=0.3649
+ja 48000
+Overall, prec1=0.4405, prec2=0.3069, f1=0.3618
+ja 50000
+Overall, prec1=0.4405, prec2=0.3027, f1=0.3588
+ja 52000
+Overall, prec1=0.4403, prec2=0.2985, f1=0.3558
+ja 54000
+Overall, prec1=0.4402, prec2=0.2943, f1=0.3527
+ja 56000
+Overall, prec1=0.4399, prec2=0.2899, f1=0.3495
+ja 58000
+Overall, prec1=0.4394, prec2=0.2855, f1=0.3461
+ja 60000
+Overall, prec1=0.4392, prec2=0.2813, f1=0.3429
+zh 2000
+Overall, prec1=0.4444, prec2=0.5858, f1=0.5054
+zh 4000
+Overall, prec1=0.4121, prec2=0.5807, f1=0.4821
+zh 6000
+Overall, prec1=0.5119, prec2=0.6197, f1=0.5606
+zh 8000
+Overall, prec1=0.5547, prec2=0.6266, f1=0.5885
+zh 10000
+Overall, prec1=0.5666, prec2=0.6106, f1=0.5878
+zh 12000
+Overall, prec1=0.5871, prec2=0.6089, f1=0.5978
+zh 14000
+Overall, prec1=0.5911, prec2=0.5951, f1=0.5931
+zh 16000
+Overall, prec1=0.6158, prec2=0.6029, f1=0.6093
+zh 18000
+Overall, prec1=0.6050, prec2=0.5765, f1=0.5904
+zh 20000
+Overall, prec1=0.5925, prec2=0.5484, f1=0.5696
+zh 22000
+Overall, prec1=0.5887, prec2=0.5359, f1=0.5611
+zh 24000
+Overall, prec1=0.5833, prec2=0.5230, f1=0.5515
+zh 26000
+Overall, prec1=0.5764, prec2=0.5089, f1=0.5406
+zh 28000
+Overall, prec1=0.5714, prec2=0.4967, f1=0.5315
+zh 30000
+Overall, prec1=0.5684, prec2=0.4864, f1=0.5242
+zh 32000
+Overall, prec1=0.5630, prec2=0.4741, f1=0.5148
+zh 34000
+Overall, prec1=0.5587, prec2=0.4628, f1=0.5063
+zh 36000
+Overall, prec1=0.5550, prec2=0.4522, f1=0.4984
+zh 38000
+Overall, prec1=0.5513, prec2=0.4416, f1=0.4904
+zh 40000
+Overall, prec1=0.5482, prec2=0.4318, f1=0.4831
+zh 42000
+Overall, prec1=0.5428, prec2=0.4201, f1=0.4736
+zh 44000
+Overall, prec1=0.5395, prec2=0.4102, f1=0.4660
+zh 46000
+Overall, prec1=0.5351, prec2=0.3994, f1=0.4574
+zh 48000
+Overall, prec1=0.5306, prec2=0.3888, f1=0.4488
+zh 50000
+Overall, prec1=0.5271, prec2=0.3790, f1=0.4410
+zh 52000
+Overall, prec1=0.5237, prec2=0.3696, f1=0.4333
+zh 54000
+Overall, prec1=0.5200, prec2=0.3599, f1=0.4254
+zh 56000
+Overall, prec1=0.5159, prec2=0.3500, f1=0.4170
+zh 58000
+Overall, prec1=0.5119, prec2=0.3402, f1=0.4088
+zh 60000
+Overall, prec1=0.5066, prec2=0.3298, f1=0.3995
+en 2000
+Overall, prec1=0.3193, prec2=0.5027, f1=0.3905
+en 4000
+Overall, prec1=0.3864, prec2=0.5192, f1=0.4430
+en 6000
+Overall, prec1=0.4209, prec2=0.5176, f1=0.4643
+en 8000
+Overall, prec1=0.4433, prec2=0.5125, f1=0.4754
+en 10000
+Overall, prec1=0.4583, prec2=0.5056, f1=0.4808
+en 12000
+Overall, prec1=0.4730, prec2=0.5025, f1=0.4873
+en 14000
+Overall, prec1=0.4804, prec2=0.4942, f1=0.4872
+en 16000
+Overall, prec1=0.4885, prec2=0.4884, f1=0.4884
+en 18000
+Overall, prec1=0.4969, prec2=0.4853, f1=0.4911
+en 20000
+Overall, prec1=0.5011, prec2=0.4785, f1=0.4896
+en 22000
+Overall, prec1=0.4939, prec2=0.4613, f1=0.4770
+en 24000
+Overall, prec1=0.5037, prec2=0.4631, f1=0.4825
+en 26000
+Overall, prec1=0.5131, prec2=0.4643, f1=0.4875
+en 28000
+Overall, prec1=0.5156, prec2=0.4592, f1=0.4858
+en 30000
+Overall, prec1=0.5115, prec2=0.4481, f1=0.4777
+en 32000
+Overall, prec1=0.5043, prec2=0.4345, f1=0.4668
+en 34000
+Overall, prec1=0.4957, prec2=0.4199, f1=0.4546
+en 36000
+Overall, prec1=0.4931, prec2=0.4121, f1=0.4489
+en 38000
+Overall, prec1=0.4960, prec2=0.4110, f1=0.4495
+en 40000
+Overall, prec1=0.4958, prec2=0.4072, f1=0.4472
+en 42000
+Overall, prec1=0.4958, prec2=0.4036, f1=0.4450
+en 44000
+Overall, prec1=0.4939, prec2=0.3985, f1=0.4411
+en 46000
+Overall, prec1=0.4921, prec2=0.3935, f1=0.4373
+en 48000
+Overall, prec1=0.4897, prec2=0.3880, f1=0.4329
+en 50000
+Overall, prec1=0.4885, prec2=0.3835, f1=0.4297
+en 52000
+Overall, prec1=0.4855, prec2=0.3776, f1=0.4248
+en 54000
+Overall, prec1=0.4832, prec2=0.3723, f1=0.4206
+en 56000
+Overall, prec1=0.4798, prec2=0.3662, f1=0.4154
+en 58000
+Overall, prec1=0.4766, prec2=0.3604, f1=0.4104
+en 60000
+Overall, prec1=0.4750, prec2=0.3557, f1=0.4068"""
 
 UD_RESULTS_ON_WIKI = """en 10000
 Overall, prec1=0.4347, prec2=0.5558, f1=0.4879
@@ -99,7 +339,8 @@ def draw_one(one_res, title):
     #
     plt.clf()
     fig, ax1 = plt.subplots(figsize=(10,6))
-    ax1.set_xticks(vocab_sizes)
+    if len(vocab_sizes) <= 5:
+        ax1.set_xticks(vocab_sizes)
     ax1.set_title(title, fontsize=24)
     ax1.plot(vocab_sizes, precisions, "b-o", label="Precision")
     ax1.plot(vocab_sizes, recalls, "g-o", label="Recall")
