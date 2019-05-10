@@ -225,4 +225,17 @@ f=wiki_${cl}.detok.norm.cut.txt
 ../../bin/spm_encode --model=./models/${cl}_norm_wiki_${vs}.model <$f >./outputs/${cl}_norm_wikicut.bpe_${vs}.txt
 done
 done
+# =====
+# print last example
+tail -n 1 ../data_wiki/outputs/*_ud2* | python3 -c "import sys; import re; print(''.join([(' & ' + re.sub(' ', ' $|$ ', re.sub('▁','\\_',line.strip())) + r'\\\\' + '\n') for line in sys.stdin if len(line.strip())>0]), end='')" | grep -v "=="
+# =====
+# finer grained vocab size for UD2
+for cl in id ja zh en; do
+for vs in `seq 2000 2000 60000`; do
+../../bin/spm_train --input=../data_ud2/${cl}_ud2.orig.txt --model_prefix=z --vocab_size=${vs} --model_type=bpe --split_by_whitespace=0
+../../bin/spm_encode --model=z.model <../data_ud2/${cl}_ud2.orig.txt >z.txt
+echo ${cl} ${vs}
+python3 analysis.py --f1 z.txt --f2 ../data_ud2/${cl}_ud2.tok.txt |& grep Overall
+done
+done |& tee log
 """
