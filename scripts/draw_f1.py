@@ -334,7 +334,7 @@ def res_s2d(ss):
     return ret
 
 def draw_one(one_res, title):
-    vocab_sizes = sorted(one_res.keys())
+    vocab_sizes = sorted([v for v in one_res.keys() if ("WIKI" in title or 4000<=v<=50000)])
     precisions, recalls, f1s = [[float(one_res[v][i]) for v in vocab_sizes] for i in range(3)]
     #
     plt.clf()
@@ -348,7 +348,18 @@ def draw_one(one_res, title):
     ax1.grid(linestyle='--')
     ax1.set_ylabel("Score", fontsize=24)
     ax1.set_xlabel("Vocab Size", fontsize=24)
-    ax1.legend(loc='upper right', fontsize=20)
+    if "UD" in title and ("Lang=ja" in title or "Lang=zh" in title):
+        ax1.legend(loc='upper right', fontsize=20)
+    else:
+        ax1.legend(loc='lower right', fontsize=20)
+    if "Lang=en" in title:
+        ax1.set_ylim([0.3, 0.6])
+    elif "Lang=id" in title:
+        ax1.set_ylim([0.3, 0.6])
+    elif "Lang=ja" in title:
+        ax1.set_ylim([0.3, 0.5])
+    elif "Lang=zh" in title:
+        ax1.set_ylim([0.4, 0.65])
     fig.tight_layout()
     plt.savefig(title + ".pdf", format="pdf")
     # plt.show()
