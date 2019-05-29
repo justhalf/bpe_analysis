@@ -2,6 +2,8 @@
 
 import re
 from collections import defaultdict
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 #
@@ -316,6 +318,31 @@ Overall, prec1=0.6288, prec2=0.5653, f1=0.5954
 zh 90000
 Overall, prec1=0.6283, prec2=0.5414, f1=0.5817"""
 
+UD_RESULTS_ON_WIKI_GROUP_PPL = """en 10000
+Overall, prec1=0.5269, prec2=0.5727, f1=0.5488
+Overall, prec1=0.5019, prec2=0.5695, f1=0.5336
+Overall, prec1=0.4699, prec2=0.5635, f1=0.5125
+Overall, prec1=0.4305, prec2=0.5581, f1=0.4861
+Overall, prec1=0.1999, prec2=0.4552, f1=0.2778
+en 30000
+Overall, prec1=0.5794, prec2=0.5339, f1=0.5558
+Overall, prec1=0.5691, prec2=0.5451, f1=0.5568
+Overall, prec1=0.5466, prec2=0.5546, f1=0.5506
+Overall, prec1=0.5184, prec2=0.5712, f1=0.5435
+Overall, prec1=0.2629, prec2=0.5087, f1=0.3467
+en 60000
+Overall, prec1=0.5825, prec2=0.4886, f1=0.5314
+Overall, prec1=0.5819, prec2=0.5080, f1=0.5425
+Overall, prec1=0.5714, prec2=0.5297, f1=0.5498
+Overall, prec1=0.5564, prec2=0.5601, f1=0.5582
+Overall, prec1=0.3097, prec2=0.5391, f1=0.3934
+en 90000
+Overall, prec1=0.5736, prec2=0.4604, f1=0.5108
+Overall, prec1=0.5777, prec2=0.4827, f1=0.5260
+Overall, prec1=0.5749, prec2=0.5096, f1=0.5403
+Overall, prec1=0.5660, prec2=0.5458, f1=0.5557
+Overall, prec1=0.3294, prec2=0.5455, f1=0.4107"""
+
 # str to dict for the results
 def res_s2d(ss):
     ret = defaultdict(dict)
@@ -326,49 +353,60 @@ def res_s2d(ss):
         idx += 1
         cl, vsize = line.split()
         vsize = int(vsize)
-        line = lines[idx]
-        idx += 1
-        m = re.fullmatch(r"Overall, prec1=([0-9.]+), prec2=([0-9.]+), f1=([0-9.]+)", line)
-        precision, recall, f1 = m.group(1), m.group(2), m.group(3)
-        ret[cl][vsize] = (precision, recall, f1)
+        scores = []
+        while idx < len(lines):
+            line = lines[idx]
+            if not line.startswith('Overall'):
+                break
+            idx += 1
+            m = re.fullmatch(r"Overall, prec1=([0-9.]+), prec2=([0-9.]+), f1=([0-9.]+)", line)
+            precision, recall, f1 = m.group(1), m.group(2), m.group(3)
+            scores.append((precision, recall, f1))
+        ret[cl][vsize] = scores
     return ret
 
 def draw_one(one_res, title):
     vocab_sizes = sorted([v for v in one_res.keys() if ("WIKI" in title or 4000<=v<=50000)])
-    precisions, recalls, f1s = [[float(one_res[v][i]) for v in vocab_sizes] for i in range(3)]
-    #
-    plt.clf()
-    fig, ax1 = plt.subplots(figsize=(10,6))
-    if len(vocab_sizes) <= 5:
-        ax1.set_xticks(vocab_sizes)
-    ax1.set_title(title, fontsize=24)
-    ax1.plot(vocab_sizes, precisions, "b-o", label="Precision")
-    ax1.plot(vocab_sizes, recalls, "g-o", label="Recall")
-    ax1.plot(vocab_sizes, f1s, "r-o", label="F1")
-    ax1.grid(linestyle='--')
-    ax1.set_ylabel("Score", fontsize=24)
-    ax1.set_xlabel("Vocab Size", fontsize=24)
-    if "UD" in title and ("Lang=ja" in title or "Lang=zh" in title):
-        ax1.legend(loc='upper right', fontsize=20)
-    else:
-        ax1.legend(loc='lower right', fontsize=20)
-    if "Lang=en" in title:
-        ax1.set_ylim([0.3, 0.6])
-    elif "Lang=id" in title:
-        ax1.set_ylim([0.3, 0.6])
-    elif "Lang=ja" in title:
-        ax1.set_ylim([0.3, 0.5])
-    elif "Lang=zh" in title:
-        ax1.set_ylim([0.4, 0.65])
-    fig.tight_layout()
-    plt.savefig(title + ".pdf", format="pdf")
-    # plt.show()
+    for group_idx in range(len(one_res[vocab_sizes[0]])):
+        precisions, recalls, f1s = [[float(one_res[v][group_idx][i]) for v in vocab_sizes] for i in range(3)]
+        #
+        plt.clf()
+        fig, ax1 = plt.subplots(figsize=(10,6))
+        if len(vocab_sizes) <= 5:
+            ax1.set_xticks(vocab_sizes)
+        ax1.set_title(title, fontsize=24)
+        ax1.plot(vocab_sizes, precisions, "b-o", label="Precision")
+        ax1.plot(vocab_sizes, recalls, "g-o", label="Recall")
+        ax1.plot(vocab_sizes, f1s, "r-o", label="F1")
+        ax1.grid(linestyle='--')
+        ax1.set_ylabel("Score", fontsize=24)
+        ax1.set_xlabel("Vocab Size", fontsize=24)
+        if "UD" in title and ("Lang=ja" in title or "Lang=zh" in title):
+            ax1.legend(loc='upper right', fontsize=20)
+        else:
+            ax1.legend(loc='lower right', fontsize=20)
+        if "Lang=en" in title:
+            ax1.set_ylim([0.15, 0.6])
+        elif "Lang=id" in title:
+            ax1.set_ylim([0.15, 0.6])
+        elif "Lang=ja" in title:
+            ax1.set_ylim([0.15, 0.5])
+        elif "Lang=zh" in title:
+            ax1.set_ylim([0.15, 0.65])
+        fig.tight_layout()
+        full_title = '{}_{}.pdf'.format(title, group_idx)
+        plt.savefig(full_title, format="pdf")
+        # plt.show()
 
 #
 def main():
-    for res_str, train_data in zip([UD_RESULTS_ON_UD, UD_RESULTS_ON_WIKI], ["UD", "WIKI"]):
+    # for res_str, train_data in zip([UD_RESULTS_ON_UD, UD_RESULTS_ON_WIKI], ["UD", "WIKI"]):
+    #     res = res_s2d(res_str)
+    #     for cl in ["en", "id", "ja", "zh"]:
+    #         draw_one(res[cl], f"Lang={cl},TrainingData={train_data}")
+    for res_str, train_data in zip([UD_RESULTS_ON_WIKI_GROUP_PPL], ["WIKI_PPL"]):
         res = res_s2d(res_str)
-        for cl in ["en", "id", "ja", "zh"]:
+        for cl in ["en"]:
             draw_one(res[cl], f"Lang={cl},TrainingData={train_data}")
 
 if __name__ == '__main__':

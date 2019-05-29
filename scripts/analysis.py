@@ -162,13 +162,18 @@ def analyze_para(vocab1: Vocab, corpus1: Corpus, vocab2: Vocab, corpus2: Corpus)
         sent_idx += 1
 
 #
-def summary_para(vocab1: Vocab, corpus1: Corpus, vocab2: Vocab, corpus2: Corpus, args):
+def summary_para(vocab1: Vocab, corpus1: Corpus, vocab2: Vocab, corpus2: Corpus, sent_idx=[], args={}):
     printing("#=====\nSummary the analysis for the parallel segmentation")
     # first sentence level
     printing("#=====\nSentence level:")
     # general
-    all_prec1 = sum(z["hit"] for z in corpus1.i2props) / sum(z["Ntok"] for z in corpus1.i2props)
-    all_prec2 = sum(z["hit"] for z in corpus2.i2props) / sum(z["Ntok"] for z in corpus2.i2props)
+    if sent_idx:
+        sent_idx_filter = set(sent_idx)
+        all_prec1 = sum(z["hit"] for z in corpus1.i2props if z['idx'] in sent_idx_filter) / sum(z["Ntok"] for z in corpus1.i2props if z['idx'] in sent_idx_filter)
+        all_prec2 = sum(z["hit"] for z in corpus2.i2props if z['idx'] in sent_idx_filter) / sum(z["Ntok"] for z in corpus2.i2props if z['idx'] in sent_idx_filter)
+    else:
+        all_prec1 = sum(z["hit"] for z in corpus1.i2props) / sum(z["Ntok"] for z in corpus1.i2props)
+        all_prec2 = sum(z["hit"] for z in corpus2.i2props) / sum(z["Ntok"] for z in corpus2.i2props)
     all_f = 2*all_prec1*all_prec2 / (all_prec1+all_prec2)
     printing(f"Overall, prec1={all_prec1:.4f}, prec2={all_prec2:.4f}, f1={all_f:.4f}")
     # individuals
@@ -232,6 +237,8 @@ def parse_cmd(args=None):
     # using local variable "e" as vocab entry
     parser.add_argument('--vocab_fcode', type=str, default="True", help="Filter code for vocab")
     parser.add_argument('--vocab_scode', type=str, default="e['para']['hit']", help="Sort code for vocab")
+    parser.add_argument('--group_by_ppl', type=str, default=None, help='Use perplexity to group sentences')
+    parser.add_argument('--n_groups', type=int, default=5, help='The number of groups, if --group_by_ppl is specified')
     opts = parser.parse_args(args)
     printing(opts)
     return opts
@@ -265,7 +272,30 @@ def main():
         vocab2, corpus2 = Vocab(data2), Corpus(data2)
         # analyze the parallel ones
         analyze_para(vocab1, corpus1, vocab2, corpus2)
-        summary_para(vocab1, corpus1, vocab2, corpus2, args)
+        if args.group_by_ppl:
+            scores = []
+            with open(args.group_by_ppl, 'r') as infile:
+                for sent_idx, score in enumerate(infile):
+                    scores.append((sent_idx, float(score.strip())))
+            scores = sorted(scores, key=lambda x: -x[1])
+            sent_idxs = []
+            prev_idx = 0
+            for limit in np.linspace(0, len(scores), args.n_groups+1):
+                limit = int(limit)
+                if limit == 0:
+                    prev_idx = limit
+                    continue
+                if abs(limit - len(scores)) < 2:
+                    limit = len(scores)
+                max_score = scores[prev_idx][1]
+                min_score = scores[limit-1][1]
+                print('Max score: {:.4f}, Min score: {:.4f}'.format(max_score, min_score))
+                sent_idxs.append(list(zip(*scores[prev_idx:limit]))[0])
+                prev_idx = limit
+            for sent_idx in sent_idxs:
+                summary_para(vocab1, corpus1, vocab2, corpus2, sent_idx, args)
+        else:
+            summary_para(vocab1, corpus1, vocab2, corpus2, [], args)
 
 if __name__ == '__main__':
     main()
