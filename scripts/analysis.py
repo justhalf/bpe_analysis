@@ -162,7 +162,7 @@ def analyze_para(vocab1: Vocab, corpus1: Corpus, vocab2: Vocab, corpus2: Corpus)
         sent_idx += 1
 
 #
-def summary_para(vocab1: Vocab, corpus1: Corpus, vocab2: Vocab, corpus2: Corpus, sent_idx=[], args={}):
+def summary_para(vocab1: Vocab, corpus1: Corpus, vocab2: Vocab, corpus2: Corpus, sent_idx=[], avg_score=0.0, args={}):
     printing("#=====\nSummary the analysis for the parallel segmentation")
     # first sentence level
     printing("#=====\nSentence level:")
@@ -175,7 +175,7 @@ def summary_para(vocab1: Vocab, corpus1: Corpus, vocab2: Vocab, corpus2: Corpus,
         all_prec1 = sum(z["hit"] for z in corpus1.i2props) / sum(z["Ntok"] for z in corpus1.i2props)
         all_prec2 = sum(z["hit"] for z in corpus2.i2props) / sum(z["Ntok"] for z in corpus2.i2props)
     all_f = 2*all_prec1*all_prec2 / (all_prec1+all_prec2)
-    printing(f"Overall, prec1={all_prec1:.4f}, prec2={all_prec2:.4f}, f1={all_f:.4f}")
+    printing(f"Overall, prec1={all_prec1:.4f}, prec2={all_prec2:.4f}, f1={all_f:.4f}, avg_p={avg_score:.4f}")
     # individuals
     sent_topk = args.sent_topk
     if sent_topk > 0:
@@ -279,7 +279,10 @@ def main():
                     scores.append((sent_idx, float(score.strip())))
             scores = sorted(scores, key=lambda x: -x[1])
             sent_idxs = []
+            group_avg_scores = []
             prev_idx = 0
+            # min_score = min(scores)
+            # max_score = max(scores)
             for limit in np.linspace(0, len(scores), args.n_groups+1):
                 limit = int(limit)
                 if limit == 0:
@@ -289,11 +292,12 @@ def main():
                     limit = len(scores)
                 max_score = scores[prev_idx][1]
                 min_score = scores[limit-1][1]
-                print('Max score: {:.4f}, Min score: {:.4f}'.format(max_score, min_score))
+                avg_score = sum(list(zip(*scores[prev_idx:limit]))[1]) / (limit-prev_idx)
                 sent_idxs.append(list(zip(*scores[prev_idx:limit]))[0])
+                group_avg_scores.append(avg_score)
                 prev_idx = limit
-            for sent_idx in sent_idxs:
-                summary_para(vocab1, corpus1, vocab2, corpus2, sent_idx, args)
+            for sent_idx, avg_score in zip(sent_idxs, group_avg_scores):
+                summary_para(vocab1, corpus1, vocab2, corpus2, sent_idx, avg_score, args)
         else:
             summary_para(vocab1, corpus1, vocab2, corpus2, [], args)
 

@@ -319,29 +319,51 @@ zh 90000
 Overall, prec1=0.6283, prec2=0.5414, f1=0.5817"""
 
 UD_RESULTS_ON_WIKI_GROUP_PPL = """en 10000
-Overall, prec1=0.5269, prec2=0.5727, f1=0.5488
-Overall, prec1=0.5019, prec2=0.5695, f1=0.5336
-Overall, prec1=0.4699, prec2=0.5635, f1=0.5125
-Overall, prec1=0.4305, prec2=0.5581, f1=0.4861
-Overall, prec1=0.1999, prec2=0.4552, f1=0.2778
+Overall, prec1=0.5167, prec2=0.5619, f1=0.5383, avg_p=-1.5842
+Overall, prec1=0.5354, prec2=0.5818, f1=0.5576, avg_p=-1.9523
+Overall, prec1=0.5080, prec2=0.5689, f1=0.5367, avg_p=-2.1335
+Overall, prec1=0.4958, prec2=0.5702, f1=0.5304, avg_p=-2.2801
+Overall, prec1=0.4793, prec2=0.5645, f1=0.5185, avg_p=-2.4212
+Overall, prec1=0.4602, prec2=0.5624, f1=0.5062, avg_p=-2.5754
+Overall, prec1=0.4491, prec2=0.5646, f1=0.5003, avg_p=-2.7640
+Overall, prec1=0.4090, prec2=0.5501, f1=0.4692, avg_p=-3.0348
+Overall, prec1=0.3341, prec2=0.5183, f1=0.4063, avg_p=-3.4955
+Overall, prec1=0.0951, prec2=0.3413, f1=0.1488, avg_p=-4.8993
 en 30000
-Overall, prec1=0.5794, prec2=0.5339, f1=0.5558
-Overall, prec1=0.5691, prec2=0.5451, f1=0.5568
-Overall, prec1=0.5466, prec2=0.5546, f1=0.5506
-Overall, prec1=0.5184, prec2=0.5712, f1=0.5435
-Overall, prec1=0.2629, prec2=0.5087, f1=0.3467
+Overall, prec1=0.5707, prec2=0.5246, f1=0.5467, avg_p=-1.5842
+Overall, prec1=0.5867, prec2=0.5418, f1=0.5634, avg_p=-1.9523
+Overall, prec1=0.5702, prec2=0.5388, f1=0.5541, avg_p=-2.1335
+Overall, prec1=0.5680, prec2=0.5514, f1=0.5596, avg_p=-2.2801
+Overall, prec1=0.5520, prec2=0.5512, f1=0.5516, avg_p=-2.4212
+Overall, prec1=0.5410, prec2=0.5582, f1=0.5495, avg_p=-2.5754
+Overall, prec1=0.5347, prec2=0.5709, f1=0.5522, avg_p=-2.7640
+Overall, prec1=0.4996, prec2=0.5716, f1=0.5332, avg_p=-3.0348
+Overall, prec1=0.4275, prec2=0.5653, f1=0.4868, avg_p=-3.4955
+Overall, prec1=0.1337, prec2=0.4066, f1=0.2012, avg_p=-4.8993
 en 60000
-Overall, prec1=0.5825, prec2=0.4886, f1=0.5314
-Overall, prec1=0.5819, prec2=0.5080, f1=0.5425
-Overall, prec1=0.5714, prec2=0.5297, f1=0.5498
-Overall, prec1=0.5564, prec2=0.5601, f1=0.5582
-Overall, prec1=0.3097, prec2=0.5391, f1=0.3934
+Overall, prec1=0.5761, prec2=0.4815, f1=0.5245, avg_p=-1.5842
+Overall, prec1=0.5879, prec2=0.4946, f1=0.5372, avg_p=-1.9523
+Overall, prec1=0.5777, prec2=0.4985, f1=0.5352, avg_p=-2.1335
+Overall, prec1=0.5860, prec2=0.5177, f1=0.5498, avg_p=-2.2801
+Overall, prec1=0.5738, prec2=0.5230, f1=0.5472, avg_p=-2.4212
+Overall, prec1=0.5689, prec2=0.5369, f1=0.5524, avg_p=-2.5754
+Overall, prec1=0.5665, prec2=0.5532, f1=0.5598, avg_p=-2.7640
+Overall, prec1=0.5446, prec2=0.5686, f1=0.5563, avg_p=-3.0348
+Overall, prec1=0.4856, prec2=0.5844, f1=0.5305, avg_p=-3.4955
+Overall, prec1=0.1686, prec2=0.4571, f1=0.2464, avg_p=-4.8993
 en 90000
-Overall, prec1=0.5736, prec2=0.4604, f1=0.5108
-Overall, prec1=0.5777, prec2=0.4827, f1=0.5260
-Overall, prec1=0.5749, prec2=0.5096, f1=0.5403
-Overall, prec1=0.5660, prec2=0.5458, f1=0.5557
-Overall, prec1=0.3294, prec2=0.5455, f1=0.4107"""
+Overall, prec1=0.5700, prec2=0.4557, f1=0.5064, avg_p=-1.5842
+Overall, prec1=0.5766, prec2=0.4645, f1=0.5145, avg_p=-1.9523
+Overall, prec1=0.5736, prec2=0.4732, f1=0.5186, avg_p=-2.1335
+Overall, prec1=0.5818, prec2=0.4923, f1=0.5333, avg_p=-2.2801
+Overall, prec1=0.5768, prec2=0.5032, f1=0.5375, avg_p=-2.4212
+Overall, prec1=0.5729, prec2=0.5166, f1=0.5433, avg_p=-2.5754
+Overall, prec1=0.5736, prec2=0.5360, f1=0.5541, avg_p=-2.7640
+Overall, prec1=0.5572, prec2=0.5580, f1=0.5576, avg_p=-3.0348
+Overall, prec1=0.5096, prec2=0.5839, f1=0.5442, avg_p=-3.4955
+Overall, prec1=0.1847, prec2=0.4761, f1=0.2661, avg_p=-4.8993"""
+
+UD_RESULTS_ON_WIKI_GROUP_PPL_EVEN = """"""
 
 # str to dict for the results
 def res_s2d(ss):
@@ -359,15 +381,20 @@ def res_s2d(ss):
             if not line.startswith('Overall'):
                 break
             idx += 1
-            m = re.fullmatch(r"Overall, prec1=([0-9.]+), prec2=([0-9.]+), f1=([0-9.]+)", line)
-            precision, recall, f1 = m.group(1), m.group(2), m.group(3)
-            scores.append((precision, recall, f1))
+            m = re.fullmatch(r"Overall, prec1=([0-9.]+), prec2=([0-9.]+), f1=([0-9.]+)(?:, avg_p=([-0-9.]+))?", line)
+            precision, recall, f1, avg_p = [float(m.group(i+1)) for i in range(4)]
+            scores.append((precision, recall, f1, avg_p))
         ret[cl][vsize] = scores
     return ret
 
 def draw_one(one_res, title):
     vocab_sizes = sorted([v for v in one_res.keys() if ("WIKI" in title or 4000<=v<=50000)])
-    for group_idx in range(len(one_res[vocab_sizes[0]])):
+    group_indices = list(range(len(one_res[vocab_sizes[0]])))
+    try:
+        group_scores = [one_res[vocab_sizes[0]][i][3] for i in group_indices]
+    except:
+        group_scores = group_indices[:]
+    for group_idx in group_indices:
         precisions, recalls, f1s = [[float(one_res[v][group_idx][i]) for v in vocab_sizes] for i in range(3)]
         #
         plt.clf()
@@ -396,6 +423,43 @@ def draw_one(one_res, title):
         fig.tight_layout()
         full_title = '{}_{}.pdf'.format(title, group_idx)
         plt.savefig(full_title, format="pdf")
+        # plt.show()
+    metrics = ['Precision', 'Recall', 'F1']
+    for metric_idx in range(3): # precision, recall, f1
+        scores_based_on_vocab_size = [[float(one_res[v][group_idx][metric_idx]) for group_idx in group_indices] for v in vocab_sizes]
+        #
+        plt.clf()
+        fig, ax1 = plt.subplots(figsize=(10,6))
+        ax1.set_xticks(group_scores)
+        ax1.set_title(title, fontsize=24)
+        colors = 'bgrmp'
+        for series, vocab_size, color in zip(scores_based_on_vocab_size, vocab_sizes, colors):
+            ax1.plot(group_scores, series, color+"-o", label=vocab_size)
+        ax1.grid(linestyle='--')
+        ax1.set_ylabel(metrics[metric_idx], fontsize=24)
+        ax1.set_xlabel("Average Log Probability", fontsize=24)
+        if "UD" in title and ("Lang=ja" in title or "Lang=zh" in title):
+            ax1.legend(loc='upper right', fontsize=20)
+        else:
+            ax1.legend(loc='lower right', fontsize=20)
+        if "Lang=en" in title:
+            if metrics[metric_idx] == 'Precision':
+                ax1.set_ylim([0.05, 0.6])
+            elif metrics[metric_idx] == 'Recall':
+                ax1.set_ylim([0.30, 0.6])
+            elif metrics[metric_idx] == 'F1':
+                ax1.set_ylim([0.10, 0.6])
+        elif "Lang=id" in title:
+            ax1.set_ylim([0.15, 0.6])
+        elif "Lang=ja" in title:
+            ax1.set_ylim([0.15, 0.5])
+        elif "Lang=zh" in title:
+            ax1.set_ylim([0.15, 0.65])
+        plt.setp(ax1.get_xticklabels(), rotation=40, horizontalalignment='right')
+        fig.tight_layout()
+        full_title = '{}_{}'.format(title, metrics[metric_idx])
+        plt.savefig(full_title + '.pdf', format="pdf")
+        plt.savefig(full_title + '.png', format="png")
         # plt.show()
 
 #

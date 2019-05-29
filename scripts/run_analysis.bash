@@ -10,7 +10,7 @@ for cl in en; do
             --f1 $f \
             --f2 outputs/ud2/${cl}_ud2.tok.txt \
             --group_by_ppl outputs/ud2/en_ud2.tok.score \
-            --n_groups 5 \
+            --n_groups 10 \
             |& grep -E "(Overall|Max score)"
     done
 done
